@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Toast from './components/Toast';
 import CartDrawer from './components/CartDrawer';
 import BottomNav from './components/BottomNav';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
@@ -56,9 +57,9 @@ function App() {
   return (
     <CartProvider>
       <PayPalScriptProvider options={paypalOptions}>
-              <Router>
-                <Toast />
-                <CartDrawer />
+                    <Router>
+                      <ScrollToTop />
+                      <Toast />                <CartDrawer />
                 <BottomNav />
                 <Routes>        {/* Customer Routes */}
         <Route path="/" element={<ShopLayout><Home /></ShopLayout>} />
