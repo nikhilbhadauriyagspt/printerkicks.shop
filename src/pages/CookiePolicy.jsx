@@ -10,8 +10,7 @@ export default function CookiePolicy() {
       lastUpdated="February 11, 2026"
     >
       <p className="lead">
-        This Cookie Policy explains how PrimeFix Solutions LLC ("Company," "we," "us," or "our") uses cookies and similar technologies when you visit our website: <a href="http://primefixsolutions.co/">http://primefixsolutions.co/</a>
-      </p>
+                 This Cookie Policy explains how PrinterKicks LLC ("Company," "we," "us," or "our") uses cookies and similar technologies when you visit our website: <a href="http://primefixsolutions.co/">http://printerkicks.shop/</a>      </p>
       <p>
         This Cookie Policy should be read together with our <Link to="/privacy-policy">Privacy Policy</Link> and <Link to="/terms-and-conditions">Terms and Conditions</Link>.
       </p>
@@ -128,8 +127,7 @@ export default function CookiePolicy() {
       <p>We do not sell personal information. If cookies are considered “sharing” under certain US state privacy laws (such as targeted advertising), you may exercise your rights by:</p>
       <ul>
         <li>Emailing: <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a></li>
-        <li>Visiting: <Link to="/contact">http://primefixsolutions.co/contact</Link></li>
-      </ul>
+                 <li>Visiting: <Link to="/contact">http://printerkicks.shop/contact</Link></li>      </ul>
 
       <h2>9. CHILDREN’S PRIVACY</h2>
       <p>Our website is not intended for individuals under the age of 18. We do not knowingly collect personal information from minors.</p>
@@ -142,11 +140,9 @@ export default function CookiePolicy() {
       <p>If you have any questions regarding this Cookie Policy, please contact:</p>
       <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 my-8 not-prose">
         <address className="not-italic text-slate-700 font-bold leading-relaxed space-y-2">
-          <p>PrimeFix Solutions LLC</p>
-          <p>Authorised HP Partner</p>
-          <p>3014 Dauphine St Ste A PM3 357287</p>
-          <p>New Orleans, LA 70117</p>
-          <p>United States</p>
+                     <p>PrinterKicks LLC</p>          <p>Authorised HP Partner</p>
+                     <p>4904 Alpinis Dr</p>
+                     <p>Raleigh, NC 27616</p>          <p>United States</p>
           <p className="pt-4 flex items-center gap-3 text-blue-600">info@printerkicks.shop</p>
         </address>
       </div>

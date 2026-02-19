@@ -111,7 +111,6 @@ export default function Footer() {
                       {loading ? <Loader2 className="animate-spin" size={16} /> : <>Initialize <ArrowUpRight size={14} className="ml-2" /></>}
                     </button>
                   </form>
-                  <p className="mt-6 text-[9px] text-slate-400 font-bold uppercase tracking-[0.2em]">Restricted to authorized technical dispatches.</p>
                </div>
             </div>
           </div>
@@ -159,11 +158,16 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h4 className="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em] mb-10">LEGAL & POLICIES</h4>
             <ul className="space-y-4">
-              {['Privacy Policy', 'Terms of Service', 'Return Policy', 'Shipping Policy'].map(item => (
-                <li key={item}>
-                  <Link to={`/${item.toLowerCase().replace(/ /g, '-')}`} className="text-slate-500 hover:text-blue-600 transition-colors text-[13px] font-black uppercase tracking-tight flex items-center gap-3 group">
+              {[
+                { name: 'Privacy Policy', path: '/privacy-policy' },
+                { name: 'Terms & Conditions', path: '/terms-and-conditions' },
+                { name: 'Return Policy', path: '/return-policy' },
+                { name: 'Shipping Policy', path: '/shipping-policy' }
+              ].map(item => (
+                <li key={item.name}>
+                  <Link to={item.path} className="text-slate-500 hover:text-blue-600 transition-colors text-[13px] font-black uppercase tracking-tight flex items-center gap-3 group">
                     <div className="h-1 w-1 rounded-full bg-slate-200 group-hover:bg-blue-600 transition-colors" />
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -178,7 +182,7 @@ export default function Footer() {
                     <MapPin size={18} className="text-blue-600" />
                   </div>
                   <span className="text-[13px] font-black text-slate-500 leading-relaxed uppercase tracking-tight">
-                    3014 Dauphine St Ste A <br /> New Orleans, LA 70117, USA
+                    4904 Alpinis Dr <br /> Raleigh, NC 27616, USA
                   </span>
                </div>
                <div className="flex flex-col gap-4">
@@ -196,7 +200,7 @@ export default function Footer() {
         {/* --- MAP INTEGRATION --- */}
         <div className="w-full h-[350px] mb-20 rounded-[3rem] overflow-hidden border border-slate-100 shadow-inner grayscale-[0.8] hover:grayscale-0 transition-all duration-1000">
            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.142851421456!2d-90.0414416!3d29.9610111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a61660666667%3A0x6666666666666666!2s3014%20Dauphine%20St%2C%20New%20Orleans%2C%20LA%2070117%2C%20USA!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3232.87123456789!2d-78.5678901!3d35.8901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5f123456789%3A0x123456789abcdef!2s4904%20Alpinis%20Dr%2C%20Raleigh%2C%20NC%2027616%2C%20USA!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
               width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
             />

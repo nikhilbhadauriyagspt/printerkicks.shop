@@ -19,7 +19,8 @@ export default function About() {
         <div className="absolute inset-0 z-0">
           <img
             src={banner1}
-            alt="About Prime Fix"
+                        alt="About PrinterKicks" 
+            
             className="w-full h-full object-cover grayscale opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/60 to-transparent" />
@@ -114,39 +115,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* --- DIVISIONS GRID --- */}
-      <section className="px-6 md:px-10 lg:px-16 py-16 bg-slate-50 border-y border-slate-100">
-        <div className="max-w-[1920px] mx-auto">
-          <div className="flex flex-col items-center text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-              <span className="text-[10px] font-black tracking-[0.5em] text-blue-600 uppercase">Capabilities</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">
-              SPECIALIZED <span className="text-slate-400 italic">DIVISIONS.</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { icon: Monitor, title: "Precision Output", sub: "PRO PRINTING" },
-              { icon: Printer, title: "Print Infra", sub: "INFRASTRUCTURE" },
-              { icon: Package, title: "Supply Chain", sub: "CONSUMABLES" },
-              { icon: Terminal, title: "Tech Strategy", sub: "CONSULTING" },
-            ].map((item, i) => (
-              <div key={i} className="p-8 bg-white border border-slate-200 hover:border-blue-600/20 transition-all duration-500 group flex flex-col items-center text-center rounded-[1.5rem]">
-                <div className="h-14 w-14 bg-slate-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-slate-900 group-hover:text-white transition-all">
-                  <item.icon size={24} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-lg font-black text-slate-900 uppercase tracking-tight mb-1">{item.title}</h3>
-                <span className="text-[8px] font-black text-blue-600 uppercase tracking-widest">{item.sub}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* --- STRATEGIC MISSION --- */}
       <section className="px-6 md:px-10 lg:px-16 py-16 lg:py-24 bg-white">
         <div className="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-px bg-slate-100 border border-slate-100 shadow-xl overflow-hidden">
@@ -182,13 +150,11 @@ export default function About() {
             <p className="text-slate-500 font-medium text-base max-w-xs leading-relaxed uppercase tracking-tight">Authorized nodes, precision architects, and national infrastructure.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { title: "AUTH PARTNER", icon: ShieldCheck },
-              { title: "MULTI-VENDOR", icon: Globe },
               { title: "EXPERT GUIDANCE", icon: Zap },
               { title: "PRIORITY LOGISTICS", icon: Package },
-              { title: "SECURE NODES", icon: ShieldCheck },
               { title: "CLIENT CARE", icon: Heart },
               { title: "SUSTAINABLE", icon: Leaf },
               { title: "PRO SUPPORT", icon: Wrench }

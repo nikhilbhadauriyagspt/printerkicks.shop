@@ -116,7 +116,7 @@ export default function Shop() {
   return (
     <div className="bg-white min-h-screen font-urbanist">
       <SEO 
-        title="Premium Catalog | PrimeFix Solutions" 
+        title="Premium Catalog | PrinterKicks" 
         description="Browse our authorized catalog of high-performance tech solutions."
       />
       

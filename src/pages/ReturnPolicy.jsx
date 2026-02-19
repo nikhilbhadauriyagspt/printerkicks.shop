@@ -19,12 +19,10 @@ export default function ReturnPolicy() {
       <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mt-6 not-prose">
         <p className="font-medium text-slate-700 mb-4 italic">After receiving an RMA number, place the item securely in its original packaging and include your proof of purchase, then mail your return to the following address:</p>
         <address className="not-italic text-slate-900 font-black leading-relaxed uppercase tracking-tighter">
-          PrimeFix Solutions LLC<br />
-          Attn: Returns<br />
+                     PrinterKicks LLC<br />          Attn: Returns<br />
           RMA #<br />
-          3014 Dauphine st ste A PM3 357287<br />
-          New Orleans, LA 70117<br />
-          United States
+                     4904 Alpinis Dr<br />
+                     Raleigh, NC 27616<br />          United States
         </address>
         <p className="mt-6 text-blue-600 font-black uppercase text-xs tracking-widest">
           Return shipping charges will be paid or reimbursed by us.

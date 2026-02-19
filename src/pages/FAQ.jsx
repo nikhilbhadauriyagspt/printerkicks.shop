@@ -8,12 +8,12 @@ const faqData = [
   {
     category: "Orders & Purchasing",
     questions: [
-      { q: "How do I place an order on Prime Fix Solutions?", a: "Simply browse our products, add your items to the cart, and complete the checkout using your preferred payment method." },
+      { q: "How do I place an order on PrinterKicks?", a: "Simply browse our products, add your items to the cart, and complete the checkout using your preferred payment method." },
       { q: "Do I need an account to purchase?", a: "No. You can checkout as a guest. However, creating an account helps you track orders and access your purchase history." },
       { q: "How can I check my order status?", a: "Log into your account and visit My Orders to view real-time updates. You will also receive email notifications." },
       { q: "Can I modify or cancel my order after placing it?", a: "Orders can be modified or canceled before shipping. Once the item is dispatched, cancellations aren’t possible." },
       { q: "What payment methods do you accept?", a: "We accept major credit/debit cards (Visa, Mastercard), PayPal, and other secure digital payment options." },
-      { q: "Is shopping on Prime Fix Solutions secure?", a: "Yes. All transactions are encrypted and processed through verified, PCI-compliant payment networks including PayPal Secure." }
+      { q: "Is shopping on PrinterKicks secure?", a: "Yes. All transactions are encrypted and processed through verified, PCI-compliant payment networks including PayPal Secure." }
     ]
   },
   {
@@ -97,7 +97,7 @@ const faqData = [
     questions: [
       { q: "Are all products brand new and sealed?", a: "Yes. Every product is brand new, sealed, and delivered with full warranty." },
       { q: "Do you offer customer support on weekends?", a: "Yes. Our support team is available 7 days a week." },
-      { q: "How can I contact Prime Fix Solutions?", a: "You can reach us through email, live chat, or the contact form on our website." },
+      { q: "How can I contact PrinterKicks?", a: "You can reach us through email, live chat, or the contact form on our website." },
       { q: "Do you offer discount codes or promotions?", a: "Yes. Keep an eye on our homepage banners and newsletter for active offers." }
     ]
   }

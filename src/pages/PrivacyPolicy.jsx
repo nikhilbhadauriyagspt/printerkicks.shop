@@ -9,12 +9,10 @@ export default function PrivacyPolicy() {
       lastUpdated="February 11, 2026"
     >
       <p className="lead">
-        This Privacy Notice for PrimeFix Solutions LLC ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:
-      </p>
+                 This Privacy Notice for PrinterKicks LLC ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:      </p>
       <ul>
-        <li>Visit our website at <a href="http://primefixsolutions.co/">http://primefixsolutions.co/</a> or any website of ours that links to this Privacy Notice</li>
-        <li>Use Printers, Consumables & Accessories. Prime Fix Solutions is your trusted destination for authentic, high-performance printers and printing accessories from HP and other leading technology brands.</li>
-        <li>Engage with us in other related ways, including any marketing or events</li>
+        <li>Visit our website at <a href="http://primefixsolutions.co/">http://printerkicks.shop/</a> or any website of ours that links to this Privacy Notice</li>
+                 <li>Use Printers, Consumables & Accessories. PrinterKicks is your trusted destination for authentic, high-performance printers and printing accessories from HP and other leading technology brands.</li>        <li>Engage with us in other related ways, including any marketing or events</li>
       </ul>
       <p>
         Questions or concerns? Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a>.
@@ -267,7 +265,7 @@ export default function PrivacyPolicy() {
         <li>Right to opt out of the collection of sensitive data and personal data collected through the operation of a voice or facial recognition feature (as permitted by applicable law, including the privacy law in Florida)</li>
       </ul>
       <h3>How to Exercise Your Rights</h3>
-             <p>To exercise these rights, you can contact us by submitting a data subject access request, by emailing us at info@printerkicks.shop, by visiting <a href="http://primefixsolutions.co/contact">http://primefixsolutions.co/contact</a>, or by referring to the contact details at the bottom of this document.</p>      <p>Under certain US state data protection laws, you can designate an authorized agent to make a request on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with applicable laws.</p>
+             <p>To exercise these rights, you can contact us by submitting a data subject access request, by emailing us at info@printerkicks.shop, by visiting <a href="http://primefixsolutions.co/contact">http://printerkicks.shop/contact</a>, or by referring to the contact details at the bottom of this document.</p>      <p>Under certain US state data protection laws, you can designate an authorized agent to make a request on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with applicable laws.</p>
       <h3>Request Verification</h3>
       <p>Upon receiving your request, we will need to verify your identity to determine you are the same person about whom we have the information in our system. We will only use personal information provided in your request to verify your identity or authority to make the request. However, if we cannot verify your identity from the information already maintained by us, we may request that you provide additional information for the purposes of verifying your identity and for security or fraud-prevention purposes.</p>
       <p>If you submit the request through an authorized agent, we may need to collect additional information to verify your identity before processing your request and the agent will need to provide a written and signed permission from you to submit such request on your behalf.</p>
@@ -284,11 +282,9 @@ export default function PrivacyPolicy() {
       <p>If you have questions or comments about this notice, you may email us at <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a> or contact us by post at:</p>
       <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 my-8 not-prose">
         <address className="not-italic text-slate-700 font-bold leading-relaxed">
-          PrimeFix Solutions LLC<br />
-          Authorised HP Partner<br />
-          3014 Dauphine st ste A PM3 357287<br />
-          New Orleans, LA 70117<br />
-          United States
+                     PrinterKicks LLC<br />          Authorised HP Partner<br />
+                     4904 Alpinis Dr<br />
+                     Raleigh, NC 27616<br />          United States
         </address>
       </div>
 
