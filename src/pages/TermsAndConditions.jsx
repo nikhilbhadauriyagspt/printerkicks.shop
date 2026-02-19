@@ -10,8 +10,7 @@ export default function TermsAndConditions() {
     >
       <h2>AGREEMENT TO OUR LEGAL TERMS</h2>
       <p>
-        We are PrimeFix Solutions LLC ("Company," "we," "us," "our"), a company registered in Louisiana, United States at 3014 Dauphine st ste A PM3 357287, New Orleans, LA 70117.
-      </p>
+                 We are PrinterKicks LLC ("Company," "we," "us," "our"), a company registered in Louisiana, United States at 3014 Dauphine st ste A PM3 357287, New Orleans, LA 70117.      </p>
       <p>
         We operate the website <a href="http://primefixsolutions.co/">http://primefixsolutions.co/</a> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
       </p>
@@ -19,8 +18,7 @@ export default function TermsAndConditions() {
         Prime Fix Solutions is your trusted destination for authentic, high-performance printers and printing accessories from HP and other leading technology brands.
       </p>
       <p>
-        You can contact us by phone at 00000000000, email at <a href="mailto:info@primefixsolutions.co">info@primefixsolutions.co</a>, or by mail to 3014 Dauphine st ste A PM3 357287, New Orleans, LA 70117, United States.
-      </p>
+                 You can contact us by email at <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a>, or by mail to 3014 Dauphine st ste A PM3 357287, New Orleans, LA 70117, United States.      </p>
       <p>
         These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and PrimeFix Solutions LLC, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong>IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</strong>
       </p>
@@ -99,8 +97,7 @@ export default function TermsAndConditions() {
           <p>3014 Dauphine st ste A PM3 357287</p>
           <p>New Orleans, LA 70117</p>
           <p>United States</p>
-          <p className="pt-4 text-blue-600 font-black">Email: info@primefixsolutions.co</p>
-        </address>
+                     <p className="pt-4 text-blue-600 font-black">Email: info@printerkicks.shop</p>        </address>
       </div>
     </PolicyLayout>
   );

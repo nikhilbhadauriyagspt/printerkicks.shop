@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ShieldCheck, Box } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -11,6 +11,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
 import API_BASE_URL from "../config";
+import { cn } from "../lib/utils";
 
 export default function TheVault({ products = [] }) {
   const navigate = useNavigate();
@@ -29,22 +30,22 @@ export default function TheVault({ products = [] }) {
   if (products.length === 0) return null;
 
   return (
-    <section className="px-6 md:px-10 lg:px-12 py-16 bg-white font-urbanist overflow-hidden">
+    <section className="px-6 md:px-10 lg:px-12 py-16 lg:py-20 bg-white font-urbanist overflow-hidden">
       <div className="max-w-[1920px] mx-auto">
         
-        {/* --- UNIFIED HEADING --- */}
-        <div className="flex items-end justify-between mb-12 border-b border-gray-100 pb-8">
-          <div>
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-blue-600 mb-2 block ml-1">Must-Have Gear</span>
-            <h2 className="text-4xl font-black text-slate-900 tracking-tighter uppercase leading-none">
-              The <span className="text-slate-400 italic">Vault.</span>
+        {/* --- PROFESSIONAL CENTERED HEADER --- */}
+        <div className="relative z-10 flex flex-col items-center text-center mb-16">
+          <div className="max-w-4xl">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+              <span className="text-[10px] font-black tracking-[0.6em] text-blue-600 uppercase">
+                Premium Hardware
+              </span>
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">
+              THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-400 italic">VAULT.</span>
             </h2>
-          </div>
-          
-          <div className="flex items-center gap-4 pb-1">
-            <Link to="/shop" className="text-xs font-black uppercase tracking-widest text-slate-900 hover:text-blue-600 transition-colors mr-4">
-              View All
-            </Link>
           </div>
         </div>
 
@@ -56,29 +57,32 @@ export default function TheVault({ products = [] }) {
           }}
           className="w-full relative"
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-0 border-y border-slate-100">
             {products.map((p, i) => (
-              <CarouselItem key={p.id} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 xl:basis-1/6">
+              <CarouselItem key={p.id} className="pl-0 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 xl:basis-1/6">
                 <motion.div
                   onClick={() => navigate(`/product/${p.slug}`)}
-                  whileHover={{ y: -4 }}
-                  className="group relative bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-white border border-transparent hover:border-gray-100 transition-all duration-300 h-full"
+                  className="group relative bg-white p-8 cursor-pointer hover:bg-slate-50 transition-all duration-500 h-full border-r border-slate-100 border-y border-slate-50"
                 >
-                  <div className="aspect-square rounded-xl bg-white mb-3 overflow-hidden shadow-sm p-4 flex items-center justify-center">
+                  <div className="aspect-square bg-white mb-8 overflow-hidden p-6 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
                     <img 
                       src={getImagePath(p.images)} 
                       alt={p.name} 
-                      className="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" 
+                      className="max-w-full max-h-full object-contain mix-blend-multiply opacity-90 group-hover:opacity-100 transition-all duration-700" 
                     />
                   </div>
                   
-                  <div className="flex justify-between items-end px-1">
-                    <div className="min-w-0 flex-1">
-                      <h4 className="text-[11px] font-black text-slate-900 leading-tight mb-1 truncate">{p.name}</h4>
-                      <p className="text-[10px] font-bold text-slate-400">${p.price}</p>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                       <Box size={12} className="text-blue-600" />
+                       <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">{p.brand_name || 'Authorized'}</span>
                     </div>
-                    <div className="text-slate-300 group-hover:text-blue-600 transition-colors ml-2">
-                      <ArrowUpRight size={14} />
+                    <h4 className="text-[13px] font-black text-slate-900 leading-tight uppercase tracking-tight line-clamp-3 min-h-[3.3rem] group-hover:text-blue-600 transition-colors">{p.name}</h4>
+                    <div className="flex items-center justify-between pt-2">
+                       <p className="text-base font-black text-slate-900">${p.price}</p>
+                       <div className="h-8 w-8 rounded-full bg-slate-900 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-500">
+                          <ArrowRight size={14} />
+                       </div>
                     </div>
                   </div>
                 </motion.div>
@@ -86,11 +90,18 @@ export default function TheVault({ products = [] }) {
             ))}
           </CarouselContent>
           
-          <div className="absolute -top-20 right-0 flex gap-2">
-            <CarouselPrevious className="static translate-y-0 h-10 w-10 border-gray-100 hover:bg-blue-600 hover:text-white transition-all shadow-sm" />
-            <CarouselNext className="static translate-y-0 h-10 w-10 border-gray-100 hover:bg-blue-600 hover:text-white transition-all shadow-sm" />
+          {/* Controls */}
+          <div className="flex justify-center gap-3 mt-12">
+            <CarouselPrevious className="static translate-y-0 h-11 w-11 border-slate-200 hover:bg-slate-900 hover:text-white transition-all shadow-sm" />
+            <CarouselNext className="static translate-y-0 h-11 w-11 border-slate-200 hover:bg-slate-900 hover:text-white transition-all shadow-sm" />
           </div>
         </Carousel>
+
+        <div className="mt-16 flex justify-center">
+           <Link to="/shop" className="h-14 px-10 border-2 border-slate-100 hover:border-slate-900 rounded-full flex items-center gap-4 transition-all duration-500 text-[10px] font-black uppercase tracking-widest group">
+              ACCESS FULL ARCHIVE <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+           </Link>
+        </div>
       </div>
     </section>
   );

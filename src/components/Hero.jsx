@@ -1,258 +1,245 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, Search, Play } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Search, ShieldCheck, Zap, Monitor, Cpu, Activity, Layout, Terminal, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
+import { cn } from "../lib/utils";
 
 // Import local assets
 import banner1 from "@/assets/bannerr/banner1.jpg";
 import banner2 from "@/assets/bannerr/banner2.jpg";
 import banner3 from "@/assets/bannerr/banner3.jpg";
 import banner4 from "@/assets/bannerr/banner4.jpg";
-import banner5 from "@/assets/bannerr/banner5.jpg";
-import banner6 from "@/assets/bannerr/banner6.jpg";
-import banner7 from "@/assets/bannerr/banner7.jpg";
 
 const slides = [
   {
-    id: 1,
-    position: "left",
-    tag: "PRO SERIES",
-    title: "The Pinnacle of",
-    highlight: "Performance.",
-    desc: "Engineered with the M3 Max chip for professionals who demand nothing but the absolute best.",
+    id: "PRO-01",
+    tag: "INDUSTRIAL DESIGN",
+    title: "The Standard",
+    highlight: "Of Precision.",
+    desc: "HP Z-Series: Performance that defies logic. Built for the most demanding computational workflows in the world.",
     image: banner1,
-    cta: "Shop Pro",
-    cta2: "Learn More",
     link: "/category/laptop-computers",
-    link2: "/about"
+    specs: ["ECC MEMORY", "ISV CERTIFIED", "Z-DNA"]
   },
   {
-    id: 2,
-    position: "right",
-    tag: "GAMING GEAR",
-    title: "Dominate Every",
-    highlight: "Battlefield.",
-    desc: "RTX 4090 powered machines with 240Hz OLED displays. Experience zero-latency gaming.",
+    id: "GAM-02",
+    tag: "ELITE PERFORMANCE",
+    title: "Sovereign",
+    highlight: "Intelligence.",
+    desc: "Unrivaled cooling. Unmatched frames. The Omen ecosystem is designed for those who play to dominate, not just compete.",
     image: banner2,
-    cta: "Explore Gaming",
-    cta2: "View Catalog",
     link: "/category/laptop-computers",
-    link2: "/shop"
+    specs: ["OLED 240HZ", "CRYOMASTER", "AI-TUNED"]
   },
   {
-    id: 3,
-    position: "left",
-    tag: "ULTRA PORTABLE",
-    title: "Beauty in",
-    highlight: "Simplicity.",
-    desc: "The lightest laptop in its class. Up to 22 hours of battery life to keep you going all day.",
+    id: "MOB-03",
+    tag: "PREMIUM MOBILITY",
+    title: "Sculpted",
+    highlight: "Excellence.",
+    desc: "Spectre x360. Where jewelry-grade craftsmanship meets professional-grade power. The ultimate executive companion.",
     image: banner3,
-    cta: "View Models",
-    cta2: "Shop All",
     link: "/category/laptop-computers",
-    link2: "/shop"
+    specs: ["CNC CHASSIS", "4K HDR", "22H CHARGE"]
   },
   {
-    id: 4,
-    position: "center",
-    tag: "LUXURY TECH",
-    title: "Elegance Meets",
-    highlight: "Innovation.",
-    desc: "Premium printers and peripherals designed to elevate your workspace aesthetic.",
+    id: "ENT-04",
+    tag: "INFRASTRUCTURE",
+    title: "Secure",
+    highlight: "Workflows.",
+    desc: "LaserJet Pro. Enterprise-grade security integrated into every layer of your printing infrastructure. Reliable. Fast. Pro.",
     image: banner4,
-    cta: "Discover Luxury",
-    cta2: "Catalog",
     link: "/category/printers",
-    link2: "/shop"
-  },
-  {
-    id: 5,
-    position: "left",
-    tag: "MINIMALIST",
-    title: "Clean Desk,",
-    highlight: "Clear Mind.",
-    desc: "Wireless setups that remove the clutter, letting you focus on what truly matters.",
-    image: banner5,
-    cta: "Shop Now",
-    cta2: "Support",
-    link: "/shop",
-    link2: "/contact"
-  },
-  {
-    id: 6,
-    position: "left",
-    tag: "STUDIO DISPLAY",
-    title: "Pixels Perfected",
-    highlight: "For You.",
-    desc: "5K Retina displays that bring your creative vision to life with one billion colors.",
-    image: banner6,
-    cta: "View Store",
-    cta2: "Contact",
-    link: "/shop",
-    link2: "/contact"
-  },
-  {
-    id: 7,
-    position: "left",
-    tag: "OFFICE ESSENTIALS",
-    title: "Productivity",
-    highlight: "Redefined.",
-    desc: "High-speed printing and scanning solutions for the modern hybrid office.",
-    image: banner7,
-    cta: "Upgrade Office",
-    cta2: "Contact Sales",
-    link: "/category/printers",
-    link2: "/contact"
+    specs: ["WOLF PRO SEC", "60 PPM", "CLOUD SYNC"]
   }
 ];
 
 export default function Hero() {
   const { openSearch } = useCart();
   const [current, setCurrent] = useState(0);
-  const navigate = useNavigate();
+  const [direction, setDirection] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setDirection(1);
+    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  }, []);
+
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 6000);
+    const timer = setInterval(nextSlide, 9000);
     return () => clearInterval(timer);
-  }, [current]);
-
-  const nextSlide = () => setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  const prevSlide = () => setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  }, [nextSlide]);
 
   return (
-    <div className="bg-white font-urbanist pt-6 pb-6 md:pt-8 md:pb-8 lg:pt-10 lg:pb-10">
-      <div className="max-w-[1920px] mx-auto px-6 md:px-10 lg:px-12">
-        <section className="relative h-[75vh] md:h-[80vh] w-full overflow-hidden rounded-[3.5rem] bg-gray-50 border border-gray-200 shadow-none group">
-          
-          {/* --- BACKGROUND LAYER --- */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1 }}
-              className="absolute inset-0 w-full h-full"
-            >
-              <img 
-                src={slides[current].image} 
-                alt="" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </AnimatePresence>
+    <div className="bg-[#050505] px-0 font-urbanist">
+      <section className="relative h-[75vh] lg:h-[85vh] w-full overflow-hidden bg-[#050505]">
+        
+        {/* --- TECHNICAL HUD OVERLAY --- */}
+        <div className="absolute inset-0 z-20 pointer-events-none border-[20px] border-black hidden lg:block opacity-50">
+           <div className="absolute top-0 left-0 w-20 h-px bg-blue-600" />
+           <div className="absolute top-0 left-0 w-px h-20 bg-blue-600" />
+           <div className="absolute top-0 right-0 w-20 h-px bg-blue-600" />
+           <div className="absolute top-0 right-0 w-px h-20 bg-blue-600" />
+           <div className="absolute bottom-0 left-0 w-20 h-px bg-blue-600" />
+           <div className="absolute bottom-0 left-0 w-px h-20 bg-blue-600" />
+           <div className="absolute bottom-0 right-0 w-20 h-px bg-blue-600" />
+           <div className="absolute bottom-0 right-0 w-px h-20 bg-blue-600" />
+        </div>
 
-          {/* --- CONTENT LAYER --- */}
-          <div className="relative z-10 h-full w-full px-8 md:px-16 lg:px-24 flex items-center">
-            <div className={`w-full flex ${
-              slides[current].position === 'right' ? 'justify-end' : 
-              slides[current].position === 'center' ? 'justify-center' : 'justify-start'
-            }`}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current}
-                  initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -30, filter: "blur(10px)" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className={`max-w-xl p-10 rounded-[3rem] ${
-                    slides[current].position === 'center' ? 'text-center items-center' : 'text-left'
-                  } backdrop-blur-xl bg-white/30 border border-white/20 shadow-2xl shadow-black/5`}
-                >
-                  <span className="inline-block py-2 px-5 rounded-full bg-black text-white text-[10px] font-black tracking-[0.2em] uppercase mb-6 shadow-md">
-                    {slides[current].tag}
-                  </span>
-
-                  {/* HP Authorized Badge */}
-                  <div className="flex items-center gap-3 mb-6 bg-white/80 backdrop-blur-md w-fit px-4 py-2 rounded-2xl border border-blue-100 shadow-sm">
-                    <img src="/brands/hp.jpg" alt="HP" className="h-5 w-auto object-contain" />
-                    <div className="h-4 w-px bg-blue-200" />
-                    <span className="text-[9px] font-black text-blue-600 uppercase tracking-widest">Authorized HP Partner</span>
-                  </div>
-
-                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] md:leading-[0.9] tracking-tighter mb-4 md:mb-6">
-                    {slides[current].title} <br />
-                    <span className="text-blue-600 italic">{slides[current].highlight}</span>
-                  </h1>
-
-                  <p className="text-slate-700 text-sm md:text-lg font-bold leading-relaxed mb-6 md:mb-8">
-                    {slides[current].desc}
-                  </p>
-
-                  {/* --- HERO SEARCH BAR (Inside Card) --- */}
-                  <div className="relative mb-6 md:mb-8 w-full group cursor-pointer" onClick={openSearch}>
-                    <div className="w-full h-12 md:h-14 pl-5 md:pr-14 bg-white border border-gray-200 rounded-2xl text-xs md:text-sm font-bold shadow-inner flex items-center text-slate-400 group-hover:border-blue-500 transition-all">
-                      Search tech...
-                    </div>
-                    <div className="absolute right-2 top-2 bottom-2 w-8 md:w-10 bg-gray-100 rounded-xl flex items-center justify-center text-gray-500 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                      <Search className="h-3.5 w-3.5 md:h-4 md:w-4" />
-                    </div>
-                  </div>
-
-                  <div className={`flex flex-wrap gap-3 md:gap-4 ${slides[current].position === 'center' ? 'justify-center' : ''}`}>
-                    <Link to={slides[current].link}>
-                      <Button 
-                        size="lg" 
-                        className="bg-black hover:bg-blue-600 text-white rounded-xl md:rounded-2xl px-6 md:px-8 h-11 md:h-12 font-black text-[10px] md:text-xs tracking-widest shadow-lg transition-all hover:scale-105"
-                      >
-                        {slides[current].cta} <ArrowRight className="ml-2 h-3.5 w-3.5 md:h-4 md:w-4" />
-                      </Button>
-                    </Link>
-                    
-                    <Link to={slides[current].link2}>
-                      <Button 
-                        size="lg" 
-                        variant="outline"
-                        className="bg-white/50 backdrop-blur-sm border-gray-200 hover:bg-white text-black rounded-xl md:rounded-2xl px-6 md:px-8 h-11 md:h-12 font-black text-[10px] md:text-xs tracking-widest shadow-md transition-all hover:scale-105"
-                      >
-                        {slides[current].cta2}
-                      </Button>
-                    </Link>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* --- CONTROLS --- */}
-          <div className="absolute bottom-8 left-0 w-full z-20 px-8 md:px-16 lg:px-24 flex items-center justify-between pointer-events-none">
+        {/* --- GEOMETRIC BACKGROUND --- */}
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          <motion.div
+            key={current}
+            initial={{ x: direction > 0 ? '100%' : '-100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction < 0 ? '100%' : '-100%', opacity: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10" />
+            <img 
+              src={slides[current].image} 
+              alt="" 
+              className="w-full h-full object-cover object-center grayscale opacity-60"
+            />
             
-            {/* Pagination Dots */}
-            <div className="flex gap-2 pointer-events-auto bg-white/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrent(index)}
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    index === current ? "w-8 bg-black" : "w-2 bg-black/20 hover:bg-black/40"
-                  }`}
-                />
-              ))}
-            </div>
+            {/* Technical Grid Pattern */}
+            <div className="absolute inset-0 bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:40px_40px] opacity-20 z-10" />
+          </motion.div>
+        </AnimatePresence>
 
-            {/* Arrows */}
-            <div className="flex gap-3 pointer-events-auto">
-              <button 
-                onClick={prevSlide}
-                className="h-12 w-12 rounded-full bg-white/30 backdrop-blur-md border border-white/40 flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-lg"
+        {/* --- ASYMMETRIC CONTENT GRID --- */}
+        <div className="relative z-30 h-full w-full max-w-[1920px] mx-auto flex items-stretch">
+          
+          {/* Main Info Block */}
+          <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.6 }}
               >
-                <ChevronLeft className="h-5 w-5 text-black" />
-              </button>
-              <button 
-                onClick={nextSlide}
-                className="h-12 w-12 rounded-full bg-white/30 backdrop-blur-md border border-white/40 flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-lg"
-              >
-                <ChevronRight className="h-5 w-5 text-black" />
-              </button>
-            </div>
+                <div className="flex items-center gap-4 mb-10 overflow-hidden">
+                  <motion.div 
+                    initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
+                    className="h-px w-16 bg-blue-600 origin-left"
+                  />
+                  <span className="text-[11px] font-black text-blue-500 uppercase tracking-[0.5em] flex items-center gap-3">
+                    <Box size={14} /> {slides[current].tag}
+                  </span>
+                </div>
+
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.85] tracking-tighter mb-10 uppercase">
+                  <span className="block">{slides[current].title}</span>
+                  <span className="text-transparent stroke-text">{slides[current].highlight}</span>
+                </h1>
+
+                <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl mb-12 border-l-2 border-white/5 pl-8 italic">
+                  {slides[current].desc}
+                </p>
+
+                <div className="flex flex-wrap items-center gap-8">
+                  <Link to={slides[current].link}>
+                    <button className="h-16 px-12 bg-blue-600 hover:bg-white text-white hover:text-black font-black text-xs uppercase tracking-widest transition-all duration-500 group flex items-center gap-4 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-white translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" />
+                      <span className="relative z-10">INITIALIZE ACCESS</span>
+                      <ArrowRight size={18} className="relative z-10 group-hover:translate-x-2 transition-transform" />
+                    </button>
+                  </Link>
+                  
+                  <div className="flex items-center gap-6">
+                     <div className="h-12 w-px bg-white/10" />
+                     <div className="flex items-center gap-4">
+                        <div className="h-10 w-10 bg-white p-1.5 flex items-center justify-center">
+                           <img src="/brands/hp.jpg" alt="HP" className="w-full h-full object-contain" />
+                        </div>
+                        <div className="flex flex-col">
+                           <span className="text-[10px] font-black text-white/40 uppercase tracking-widest leading-none">Official</span>
+                           <span className="text-xs font-black text-white uppercase tracking-tight">Authorized HP Partner</span>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-        </section>
-      </div>
+          {/* Right Action/Spec Panel */}
+          <div className="hidden min-[1400px]:flex flex-col w-[400px] border-l border-white/5 justify-center p-12 bg-black/10 backdrop-blur-xl">
+             <div className="space-y-12">
+                <div>
+                   <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-8">CORE SPECIFICATIONS</p>
+                   <AnimatePresence mode="wait">
+                     <div className="space-y-4">
+                        {slides[current].specs.map((spec, i) => (
+                          <motion.div 
+                            key={spec + current}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 * i }}
+                            className="p-6 border border-white/5 bg-white/5 flex items-center justify-between group hover:bg-blue-600 transition-all duration-500"
+                          >
+                             <span className="text-xs font-black text-white uppercase tracking-widest">{spec}</span>
+                             <div className="h-2 w-2 bg-blue-600 group-hover:bg-white transition-colors" />
+                          </motion.div>
+                        ))}
+                     </div>
+                   </AnimatePresence>
+                </div>
+
+                <div className="pt-12 border-t border-white/5">
+                   <button 
+                     onClick={openSearch}
+                     className="w-full h-20 border border-white/10 flex items-center justify-between px-8 text-white hover:bg-white hover:text-black transition-all group"
+                   >
+                      <span className="text-xs font-black uppercase tracking-widest">Global Search</span>
+                      <Search size={24} className="group-hover:rotate-90 transition-transform" />
+                   </button>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        {/* --- BOTTOM SYSTEM BAR --- */}
+        <div className="absolute bottom-0 left-0 w-full h-16 bg-black flex items-center justify-center px-12 z-40 border-t border-white/5">
+           <div className="flex items-center gap-4">
+              <button onClick={prevSlide} className="h-10 w-10 border border-white/10 flex items-center justify-center text-white hover:bg-blue-600 hover:border-blue-600 transition-all">
+                 <ChevronLeft size={18} />
+              </button>
+              
+              <div className="flex gap-2">
+                {slides.map((_, i) => (
+                  <div 
+                    key={i} 
+                    className={cn(
+                      "h-1 rounded-full transition-all duration-500",
+                      current === i ? "w-8 bg-blue-600" : "w-2 bg-white/20"
+                    )} 
+                  />
+                ))}
+              </div>
+
+              <button onClick={nextSlide} className="h-10 w-10 border border-white/10 flex items-center justify-center text-white hover:bg-blue-600 hover:border-blue-600 transition-all">
+                 <ChevronRight size={18} />
+              </button>
+           </div>
+        </div>
+
+        <style>{`
+          .stroke-text {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+          }
+        `}</style>
+
+      </section>
     </div>
   );
 }

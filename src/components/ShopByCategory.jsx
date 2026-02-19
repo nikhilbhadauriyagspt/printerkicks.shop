@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Hash, Box, ShoppingBasket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 export default function ShopByCategory({ categories = [] }) {
-  // Flatten categories to show all sub-categories
+  // Flatten categories to show all sub-categories - LOGIC PRESERVED
   const subcategories = categories.flatMap(parent => parent.children || []);
 
   const getImagePath = (image) => {
@@ -16,90 +16,122 @@ export default function ShopByCategory({ categories = [] }) {
     return "https://via.placeholder.com/400x400?text=Category";
   };
 
-  const colors = [
-    "bg-blue-50/50", "bg-indigo-50/50", "bg-purple-50/50", 
-    "bg-emerald-50/50", "bg-orange-50/50", "bg-rose-50/50", 
-    "bg-cyan-50/50", "bg-slate-50/50"
-  ];
-
   return (
-    <section className="px-6 md:px-10 lg:px-12 py-16 bg-white font-urbanist relative group">
+    <section className="px-6 md:px-10 lg:px-12 py-12 lg:py-16 bg-white font-urbanist relative overflow-hidden">
+      {/* Background Micro-Grid for Industrial Feel */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] opacity-40 pointer-events-none" />
       
-      {/* --- REFINED HEADING --- */}
-      <div className="flex items-end justify-between mb-8 md:mb-12 border-b border-gray-100 pb-6 md:pb-8">
-        <div>
-          <span className="text-[8px] md:text-[10px] font-black tracking-[0.4em] uppercase text-blue-600 mb-2 block ml-1">Browse Catalog</span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase leading-none">
-            Choose Your <span className="text-slate-400 italic">Purpose.</span>
+      {/* --- PROFESSIONAL CENTERED HEADER --- */}
+      <div className="relative z-10 flex flex-col items-center text-center mb-20 gap-8">
+        <div className="max-w-4xl">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+            <span className="text-[10px] font-black tracking-[0.6em] uppercase text-blue-600 block">
+              CATALOGUE INFRASTRUCTURE
+            </span>
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">
+            CHOOSE YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-400 italic">PURPOSE.</span>
           </h2>
         </div>
         
-        <div className="flex items-center gap-2 md:gap-3">
-           <button className="swiper-prev-btn h-9 w-9 md:h-11 md:w-11 rounded-full border border-gray-100 bg-white flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-pointer shadow-sm">
-              <ChevronLeft size={16} md:size={18} />
+        {/* HUD Styled Navigation Nodes */}
+        <div className="flex items-center gap-4">
+           <button className="swiper-prev-btn h-14 w-14 border-2 border-slate-100 flex items-center justify-center hover:bg-slate-900 hover:border-slate-900 hover:text-white transition-all duration-500 group shadow-lg cursor-pointer">
+              <ChevronLeft size={24} className="group-active:scale-75 transition-transform" />
            </button>
-           <button className="swiper-next-btn h-9 w-9 md:h-11 md:w-11 rounded-full border border-gray-100 bg-white flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-pointer shadow-sm">
-              <ChevronRight size={16} md:size={18} />
+           <button className="swiper-next-btn h-14 w-14 border-2 border-slate-100 flex items-center justify-center hover:bg-slate-900 hover:border-slate-900 hover:text-white transition-all duration-500 group shadow-lg cursor-pointer">
+              <ChevronRight size={24} className="group-active:scale-75 transition-transform" />
            </button>
         </div>
       </div>
 
-      <div className="relative">
+      {/* --- KINETIC CATEGORY GRID --- */}
+      <div className="relative z-10">
         <Swiper
           modules={[Navigation, Autoplay]}
-          spaceBetween={12}
-          slidesPerView={2.2}
+          spaceBetween={1} // Tight grid lines
+          slidesPerView={1.5}
           navigation={{
             prevEl: '.swiper-prev-btn',
             nextEl: '.swiper-next-btn',
           }}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
           breakpoints={{
-            640: { slidesPerView: 3.2, spaceBetween: 20 },
-            1024: { slidesPerView: 5, spaceBetween: 20 },
-            1440: { slidesPerView: 6, spaceBetween: 20 },
+            640: { slidesPerView: 2.5 },
+            1024: { slidesPerView: 4 },
+            1440: { slidesPerView: 5 },
           }}
-          className="pb-4"
+          className="!overflow-visible"
         >
           {subcategories.map((item, i) => (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item.id} className="h-full">
               <Link to={`/shop?category=${item.slug}`}>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className={`group flex flex-col items-center p-4 md:p-6 rounded-[2rem] md:rounded-[2.5rem] border border-gray-100 ${colors[i % colors.length]} transition-all duration-500 cursor-pointer hover:bg-white h-full`}
+                  className="group relative flex flex-col border border-slate-100 bg-white hover:z-20 transition-all duration-700 h-[500px]"
                 >
-                  {/* Image Sphere */}
-                  <div className="relative w-full aspect-square mb-4 md:mb-8">
-                    <div className="absolute inset-0 bg-white/50 rounded-full scale-90 group-hover:scale-100 transition-transform duration-700 blur-2xl opacity-0 group-hover:opacity-100" />
-                    <img 
-                      src={getImagePath(item.image)} 
-                      alt={item.name}
-                      className="relative z-10 w-full h-full object-contain rounded-full transition-transform duration-700 group-hover:scale-110"
-                      onError={(e) => { e.target.src = "https://via.placeholder.com/400x400?text=" + item.name; }}
-                    />
+                  {/* Formal Category Identifier */}
+                  <div className="absolute top-0 left-0 p-8 flex justify-between w-full items-start z-20">
+                    <div className="h-8 w-8 rounded-lg border border-slate-50 flex items-center justify-center group-hover:border-blue-600/30 transition-all group-hover:rotate-90">
+                       <Box size={14} className="text-slate-200 group-hover:text-blue-600" />
+                    </div>
                   </div>
 
-                  {/* Labels */}
-                  <div className="text-center w-full">
-                    <h3 className="text-[11px] md:text-[13px] font-black text-slate-900 uppercase tracking-tight mb-1 leading-tight group-hover:text-blue-600 transition-colors h-7 md:h-8 flex items-center justify-center line-clamp-2">
-                      {item.name}
-                    </h3>
-                    <p className="text-[8px] md:text-[9px] font-bold text-slate-400 uppercase tracking-[0.1em]">
-                      Explore
-                    </p>
+                  {/* Image Showcase */}
+                  <div className="relative flex-1 overflow-hidden p-12 pt-28 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-slate-50 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                    
+                    <motion.div 
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.8 }}
+                      className="relative z-10 w-full aspect-square"
+                    >
+                      <img 
+                        src={getImagePath(item.image)} 
+                        alt={item.name}
+                        className="w-full h-full object-contain mix-blend-multiply transition-all duration-700 group-hover:drop-shadow-[0_20px_40px_rgba(37,99,235,0.15)]"
+                        onError={(e) => { e.target.src = "https://via.placeholder.com/400x400?text=" + item.name; }}
+                      />
+                    </motion.div>
                   </div>
 
-                  {/* Hover Action Arrow */}
-                  <div className="mt-4 md:mt-6 h-7 w-7 md:h-8 md:w-8 rounded-full bg-slate-900 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                    <ArrowUpRight size={12} md:size={14} />
+                  {/* Info Block */}
+                  <div className="p-8 border-t border-slate-50 bg-white relative z-10 group-hover:bg-slate-900 transition-colors duration-500">
+                    <div className="flex flex-col gap-6">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-xl font-black text-slate-900 group-hover:text-white uppercase tracking-tighter transition-colors duration-500 leading-tight">
+                          {item.name}
+                        </h3>
+                        <div className="h-10 w-10 rounded-full bg-blue-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-xl">
+                           <ArrowUpRight size={18} />
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-3">
+                        <div className="h-[1px] w-0 group-hover:w-12 bg-blue-600 transition-all duration-700" />
+                        <span className="text-[9px] font-black text-slate-400 group-hover:text-blue-400 uppercase tracking-[0.4em] transition-colors">
+                          EXPLORE PORTFOLIO
+                        </span>
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Accents */}
+                  <div className="absolute top-0 right-0 w-[2px] h-0 group-hover:h-full bg-blue-600 transition-all duration-700" />
                 </motion.div>
               </Link>
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+
+      <div className="mt-20 flex items-center gap-8">
+         <div className="h-px flex-1 bg-slate-100" />
+         <div className="h-px flex-1 bg-slate-100" />
       </div>
 
     </section>

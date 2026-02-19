@@ -10,11 +10,12 @@ import BestSellers from "@/components/BestSellers";
 import QuickPicks from "@/components/QuickPicks";
 import TheVault from "@/components/TheVault";
 import PromotionGrid from "@/components/PromotionGrid";
-import { Shield, Wrench, ArrowUpRight, Headphones, RefreshCw, ArrowRight, Loader2, ChevronRight } from "lucide-react";
+import { Shield, Wrench, ArrowUpRight, Headphones, RefreshCw, ArrowRight, Loader2, ChevronRight, Zap, Globe, Layers } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import API_BASE_URL from "../config";
+import { cn } from "../lib/utils";
 
 export default function Home() {
   const [data, setData] = useState({
@@ -57,7 +58,6 @@ export default function Home() {
             p.name.toLowerCase().includes('adapter')
           );
 
-          // Create a Mixed Arrivals list (shuffling all products to ensure variety)
           const shuffled = [...all].sort(() => 0.5 - Math.random());
 
           setData({
@@ -87,28 +87,14 @@ export default function Home() {
         description="Premium destination for authorized HP laptops, printers, and tech accessories. Delivering excellence in tech solutions across the USA."
       />
       
-      {/* 1. HERO - Entrance */}
       <Hero />
-
-      {/* 2. FEATURES - Trust markers */}
       <Features />
-
-      {/* 3. SHOP BY CATEGORY - Navigation */}
       <ShopByCategory categories={data.categories} />
-
-      {/* 4. COLLECTIONS - Major Pillars */}
       <Collections />
-
-      {/* 6. BEST SELLERS - Popularity */}
       <BestSellers products={data.all} />
-
-      {/* 7. BRAND SHOWCASE - Credibility */}
       <BrandShowcase brands={data.brands} />
-
-      {/* 8. NEW ARRIVALS GRID - Latest Products (Mixed Variety) */}
       <ProductGrid products={data.mixedArrivals.slice(0, 30)} />
 
-      {/* 9. LAPTOP SLIDER */}
       <CategorySlider 
         title="Premium Laptops" 
         subtitle="Workstation & Gaming" 
@@ -116,96 +102,104 @@ export default function Home() {
         bgColor="bg-slate-50/50"
       />
 
-      {/* 10. PRINTER SLIDER */}
       <CategorySlider 
         title="Office Printers" 
         subtitle="Laser & Inkjet" 
         products={data.printers} 
       />
 
-      {/* 11. QUICK PICKS - Micro-shopping */}
       <QuickPicks products={data.all} />
-
-      {/* 12. THE VAULT - Final Accessories */}
       <TheVault products={data.accessories.length > 0 ? data.accessories : data.all} />
 
-      {/* 13. EXPERT CONSULTING - New Section 1 */}
-      <section className="py-16 md:py-24 max-w-[1920px] mx-auto px-6 md:px-10 lg:px-12 bg-white">
-        <div className="bg-slate-900 rounded-[3rem] md:rounded-[4rem] p-10 md:p-20 overflow-hidden relative group">
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[120px] rounded-full translate-x-1/2" />
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
-            <div>
-              <span className="text-[8px] md:text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] mb-4 md:mb-6 block">Personalized Support</span>
-              <h2 className="text-3xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[1.1] md:leading-[0.9] mb-6 md:mb-8">
-                Expert Tech <br /> <span className="text-slate-500 italic">Consulting.</span>
-              </h2>
-              <p className="text-slate-400 text-sm md:text-lg font-bold max-w-md leading-relaxed mb-8 md:mb-10">
-                Not sure which configuration fits your workflow? Chat with our certified HP specialists for a tailored recommendation.
-              </p>
-              <Link to="/contact" className="inline-flex items-center gap-3 md:gap-4 px-8 md:px-10 py-4 md:py-5 bg-white text-slate-900 rounded-xl md:rounded-2xl font-black text-[10px] md:text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-2xl">
-                BOOK A CALL <ArrowUpRight size={16} md:size={18} />
-              </Link>
+      {/* 13. EXPERT CONSULTING - MODERN ENTERPRISE REDESIGN */}
+      <section className="py-20 lg:py-32 max-w-[1920px] mx-auto px-6 md:px-10 lg:px-16 bg-slate-50 relative overflow-hidden border-y border-slate-100">
+        {/* Background Technical Detail */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/[0.02] skew-x-[-12deg] translate-x-1/2 pointer-events-none" />
+        
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-8">
+               <span className="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">Support Division</span>
+               <div className="h-px w-12 bg-blue-600/30" />
             </div>
-            <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <div className="p-6 md:p-8 bg-white/5 rounded-2xl md:rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                <Shield size={24} md:size={32} className="text-blue-400 mb-4 md:mb-6" />
-                <h4 className="text-xs md:text-sm font-black text-white uppercase">Official Warranty</h4>
-                <p className="text-[8px] md:text-[10px] text-slate-500 font-bold uppercase mt-2 tracking-widest leading-tight">Guaranteed coverage</p>
+            <h2 className="text-5xl lg:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-[0.9] mb-10">
+              EXPERT TECH <br /> <span className="text-blue-600">CONSULTING.</span>
+            </h2>
+            <p className="text-slate-500 text-lg font-medium leading-relaxed mb-12 max-w-md">
+              Deploy specialized technical knowledge to your infrastructure. Our certified HP architects provide precision-engineered scaling solutions for professional workflows.
+            </p>
+            <Link to="/contact" className="h-16 px-12 bg-slate-900 text-white hover:bg-blue-600 transition-all duration-500 font-black text-xs uppercase tracking-widest flex items-center w-fit gap-4 shadow-2xl group rounded-full">
+              REQUEST ARCHITECT <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-200 border border-slate-200 shadow-2xl rounded-none">
+            {[
+              { icon: <Shield size={32} />, title: "Authorized Warranty", sub: "Official hardware protection protocol", color: "text-blue-600" },
+              { icon: <Wrench size={32} />, title: "Precision Setup", sub: "Optimized environment configuration", color: "text-slate-900" },
+              { icon: <Zap size={32} />, title: "Priority Response", sub: "SLA-backed technical assistance", color: "text-blue-600" },
+              { icon: <Layers size={32} />, title: "Enterprise Scaling", sub: "Multi-node deployment strategies", color: "text-slate-900" }
+            ].map((item, i) => (
+              <div key={i} className="p-12 bg-white hover:bg-slate-50 transition-all duration-500 group cursor-default">
+                 <div className={cn("mb-8 transition-transform duration-500 group-hover:scale-110", item.color)}>{item.icon}</div>
+                 <h4 className="text-lg font-black text-slate-900 uppercase tracking-tight mb-2">{item.title}</h4>
+                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-relaxed">{item.sub}</p>
               </div>
-              <div className="p-6 md:p-8 bg-white/5 rounded-2xl md:rounded-3xl border border-white/10 hover:bg-white/10 transition-all mt-6 md:mt-8">
-                <Wrench size={24} md:size={32} className="text-emerald-400 mb-4 md:mb-6" />
-                <h4 className="text-xs md:text-sm font-black text-white uppercase">Pro Setup</h4>
-                <p className="text-[8px] md:text-[10px] text-slate-500 font-bold uppercase mt-2 tracking-widest leading-tight">Initial configuration</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 14. BULK SOLUTIONS - New Section 2 */}
-      <section className="py-16 md:py-24 max-w-[1920px] mx-auto px-6 md:px-10 lg:px-12 bg-gray-50/50">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
-          <div className="w-full md:w-1/2">
-            <span className="text-[8px] md:text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-3 md:mb-4 block">Corporate & Education</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter leading-tight mb-4 md:mb-6">
-              Empowering <br /> Your <span className="text-slate-400 italic">Organization.</span>
+      {/* 14. SCALABLE INFRASTRUCTURE - MODERN ENTERPRISE REDESIGN */}
+      <section className="py-20 lg:py-32 max-w-[1920px] mx-auto px-6 md:px-10 lg:px-16 bg-white relative overflow-hidden">
+        {/* Background Subtle Accent */}
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-600/10 to-transparent" />
+        
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-24">
+          <div className="lg:w-1/2">
+            <div className="flex items-center gap-3 mb-8">
+               <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Enterprise Operations</span>
+               <div className="h-px w-12 bg-slate-200" />
+            </div>
+            <h2 className="text-5xl lg:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-[0.9] mb-10">
+              SCALABLE <br /> <span className="text-slate-400">INFRASTRUCTURE.</span>
             </h2>
-            <p className="text-slate-500 text-sm md:text-lg font-bold leading-relaxed mb-6 md:mb-8">
-              We provide scalable device management and bulk procurement solutions for businesses, institutions, and government agencies.
+            <p className="text-slate-500 text-lg font-medium leading-relaxed mb-12 max-w-lg">
+              We provide precision-engineered procurement channels and comprehensive lifecycle management for high-growth global organizations.
             </p>
-            <div className="flex items-center gap-6 md:gap-8">
-              <div>
-                <p className="text-2xl md:text-3xl font-black text-slate-900">500+</p>
-                <p className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Partnerships</p>
-              </div>
-              <div className="h-8 md:h-10 w-px bg-gray-200" />
-              <div>
-                <p className="text-2xl md:text-3xl font-black text-slate-900">24h</p>
-                <p className="text-[8px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Quote Turnaround</p>
-              </div>
+            
+            <div className="flex gap-16">
+               <div className="flex flex-col">
+                  <span className="text-5xl font-black text-slate-900 tracking-tighter">500+</span>
+                  <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest mt-3">Strategic Partners</span>
+               </div>
+               <div className="w-px h-16 bg-slate-100" />
+               <div className="flex flex-col">
+                  <span className="text-5xl font-black text-slate-900 tracking-tighter">24H</span>
+                  <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest mt-3">Dispatch Protocol</span>
+               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 grid grid-cols-1 gap-3 md:gap-4">
-            <div className="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl border border-gray-100 shadow-sm flex items-center justify-between group hover:border-blue-500/20 transition-all">
-              <div className="flex items-center gap-4 md:gap-6">
-                <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl md:rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xs md:text-sm font-black">01</div>
-                <div>
-                  <h4 className="text-xs md:text-sm font-black text-slate-900 uppercase">Bulk Discounts</h4>
-                  <p className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Tiered pricing for large orders</p>
+
+          <div className="lg:w-1/2 grid grid-cols-1 gap-px bg-slate-100 border border-slate-100 shadow-2xl overflow-hidden">
+            {[
+              { id: "01", title: "Tiered Enterprise Pricing", sub: "Optimized procurement for high-volume deployments" },
+              { id: "02", title: "Asset Lifecycle Management", sub: "Comprehensive device tracking and sustainable recycling" },
+              { id: "03", title: "Global Logistics Support", sub: "Priority-tracked international fulfillment networks" }
+            ].map((item, i) => (
+              <div key={i} className="bg-white p-10 hover:bg-slate-50 transition-all duration-500 group flex items-center justify-between">
+                <div className="flex items-center gap-10">
+                   <span className="text-xs font-black text-blue-600 opacity-40 group-hover:opacity-100 transition-opacity">[{item.id}]</span>
+                   <div>
+                      <h4 className="text-xl font-black text-slate-900 uppercase tracking-tight mb-1">{item.title}</h4>
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest max-w-[280px] leading-relaxed">{item.sub}</p>
+                   </div>
                 </div>
+                <Link to="/contact" className="h-14 w-14 rounded-full border border-slate-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all shadow-sm group-hover:scale-110">
+                   <ArrowRight size={20} />
+                </Link>
               </div>
-              <Link to="/contact" className="h-8 w-8 md:h-10 md:w-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all"><ChevronRight size={16} md:size={18} /></Link>
-            </div>
-            <div className="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl border border-gray-100 shadow-sm flex items-center justify-between group hover:border-blue-500/20 transition-all">
-              <div className="flex items-center gap-4 md:gap-6">
-                <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl md:rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xs md:text-sm font-black">02</div>
-                <div>
-                  <h4 className="text-xs md:text-sm font-black text-slate-900 uppercase">Device Lifecycle</h4>
-                  <p className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Asset management & recycling</p>
-                </div>
-              </div>
-              <Link to="/contact" className="h-8 w-8 md:h-10 md:w-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all"><ChevronRight size={16} md:size={18} /></Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>

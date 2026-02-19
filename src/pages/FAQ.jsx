@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '@/components/SEO';
-import { ChevronDown, HelpCircle, Search, MessageCircle, Mail, Phone, Plus, Minus } from 'lucide-react';
+import { ChevronDown, HelpCircle, Search, MessageCircle, Mail, Phone, Plus, Minus, Terminal, Activity, ShieldCheck, ArrowRight } from 'lucide-react';
+import { cn } from '../lib/utils';
 
 const faqData = [
   {
@@ -125,143 +126,153 @@ export default function FAQ() {
   })).filter(cat => cat.questions.length > 0);
 
   return (
-    <div className="min-h-screen bg-gray-50/50 pt-32 pb-20 font-urbanist">
+    <div className="min-h-screen bg-white pt-32 pb-20 font-urbanist overflow-hidden">
       <SEO 
-        title="FAQ | Support & Assistance" 
-        description="Find answers to common questions about orders, shipping, products, and technical support at PrimeFix Solutions."
+        title="FAQ | PrinterKicks Support Hub" 
+        description="Find answers to common questions about orders, shipping, products, and technical support."
       />
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        
-        {/* Header */}
-        <div className="text-center mb-20">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-[0.3em] mb-6"
-          >
-            <HelpCircle size={14} /> Help Center
-          </motion.div>
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase leading-none mb-8">
-            Frequently <span className="text-slate-400 italic">Asked Questions.</span>
+      
+      {/* --- PROFESSIONAL PAGE HEADER --- */}
+      <div className="max-w-[1920px] mx-auto px-6 md:px-10 lg:px-16 mb-24">
+        <div className="flex flex-col items-center text-center">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+            <span className="text-[10px] font-black tracking-[0.6em] text-blue-600 uppercase">
+              Support Infrastructure
+            </span>
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none mb-8">
+            KNOWLEDGE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-400 italic">BASE.</span>
           </h1>
           
-          <div className="max-w-2xl mx-auto relative group">
-            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-600 transition-colors" size={20} />
-            <input 
-              type="text" 
-              placeholder="SEARCH FOR ANSWERS..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full h-16 pl-16 pr-6 bg-white border border-gray-100 rounded-[2rem] shadow-xl shadow-gray-200/20 focus:bg-white focus:border-blue-600 outline-none text-xs font-bold uppercase transition-all"
-            />
+          <div className="w-full max-w-2xl relative group mt-4">
+             <input 
+               type="text" 
+               placeholder="SEARCH FOR SOLUTIONS..."
+               value={searchQuery}
+               onChange={(e) => setSearchQuery(e.target.value)}
+               className="w-full h-16 pl-12 pr-16 bg-slate-50 border border-slate-200 rounded-full text-xs font-black uppercase tracking-widest focus:outline-none focus:bg-white focus:border-blue-600 transition-all duration-500 shadow-inner"
+             />
+             <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+             <div className="absolute right-3 top-1/2 -translate-y-1/2 h-10 px-6 bg-slate-900 text-white rounded-full flex items-center justify-center text-[10px] font-black uppercase tracking-widest shadow-lg">
+                Query
+             </div>
           </div>
         </div>
+      </div>
 
+      <div className="max-w-[1920px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           
-          {/* Navigation Sidebar */}
-          <div className="lg:col-span-4 space-y-2">
-            <div className="sticky top-40 space-y-2">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] ml-4 mb-4 block">Categories</span>
-              {faqData.map((cat) => (
-                <button
-                  key={cat.category}
-                  onClick={() => {
-                    setActiveCategory(cat.category);
-                    setOpenIndex(0);
-                  }}
-                  className={`w-full text-left px-6 py-4 rounded-2xl text-[11px] font-black uppercase tracking-widest transition-all ${
-                    activeCategory === cat.category 
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20 translate-x-2' 
-                    : 'text-slate-500 hover:bg-white hover:text-slate-900 hover:shadow-sm'
-                  }`}
-                >
-                  {cat.category}
-                </button>
-              ))}
+          {/* --- NAVIGATION SIDEBAR --- */}
+          <div className="lg:col-span-4">
+            <div className="sticky top-32 space-y-4">
+              <div className="flex items-center gap-3 mb-6 px-4">
+                 <div className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+                 <span className="text-[10px] font-black text-slate-900 uppercase tracking-[0.4em]">Support Categories</span>
+              </div>
+              
+              <div className="space-y-1">
+                {faqData.map((cat) => (
+                  <button
+                    key={cat.category}
+                    onClick={() => { setActiveCategory(cat.category); setOpenIndex(0); }}
+                    className={cn(
+                      "w-full text-left px-6 py-4 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-300",
+                      activeCategory === cat.category 
+                      ? "bg-slate-900 text-white shadow-xl shadow-slate-900/10" 
+                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+                    )}
+                  >
+                    {cat.category}
+                  </button>
+                ))}
+              </div>
 
-              {/* Contact Card */}
-              <div className="mt-12 p-8 bg-slate-900 rounded-[2.5rem] text-white overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/20 blur-3xl rounded-full" />
-                <h4 className="text-lg font-black uppercase tracking-tight mb-2">Still need help?</h4>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-8">Our team is available to assist</p>
+              {/* Technical Help Card */}
+              <div className="mt-12 p-8 bg-blue-600 rounded-[2.5rem] text-white shadow-2xl shadow-blue-600/20 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-6 opacity-10">
+                   <ShieldCheck size={80} strokeWidth={1} />
+                </div>
+                <h4 className="text-lg font-black uppercase tracking-tight mb-2">Technical Assistance</h4>
+                <p className="text-[10px] font-bold text-blue-100 uppercase tracking-widest mb-10 opacity-80">Direct operational support available.</p>
                 <div className="space-y-4">
-                  <a href="mailto:support@primefix.co" className="flex items-center gap-4 text-xs font-bold hover:text-blue-400 transition-colors">
-                    <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center"><Mail size={16} /></div>
-                    support@primefix.co
-                  </a>
-                  <a href="tel:+1234567890" className="flex items-center gap-4 text-xs font-bold hover:text-blue-400 transition-colors">
-                    <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center"><Phone size={16} /></div>
-                    +1 (800) PRIME-FIX
+                  <a href="mailto:info@printerkicks.shop" className="flex items-center gap-4 text-xs font-black hover:opacity-80 transition-opacity uppercase tracking-widest">
+                    <div className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/10"><Mail size={16} /></div>
+                    info@printerkicks.shop
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* --- ACCORDION SYSTEM --- */}
           <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeCategory}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="space-y-4"
+                key={activeCategory} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5 }} className="space-y-4"
               >
-                <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tighter mb-8 border-b border-gray-200 pb-6">
-                  {activeCategory}
-                </h3>
+                <div className="flex items-center gap-4 mb-10 border-b border-slate-100 pb-8">
+                   <Activity size={20} className="text-blue-600" />
+                   <h3 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">
+                     {activeCategory}
+                   </h3>
+                </div>
                 
-                {filteredData.find(c => c.category === activeCategory)?.questions.map((faq, idx) => (
-                  <div 
-                    key={idx}
-                    className={`bg-white rounded-[2rem] border transition-all duration-500 overflow-hidden ${
-                      openIndex === idx ? 'border-blue-600 shadow-xl shadow-blue-600/5' : 'border-gray-100 hover:border-gray-300'
-                    }`}
-                  >
-                    <button
-                      onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
-                      className="w-full px-8 py-8 flex items-center justify-between text-left"
-                    >
-                      <span className={`text-sm md:text-base font-black uppercase tracking-tight leading-snug pr-8 ${
-                        openIndex === idx ? 'text-blue-600' : 'text-slate-900'
-                      }`}>
-                        {faq.q}
-                      </span>
-                      <div className={`h-10 w-10 rounded-full flex items-center justify-center shrink-0 transition-all ${
-                        openIndex === idx ? 'bg-blue-600 text-white rotate-180' : 'bg-gray-50 text-slate-400 hover:bg-slate-900 hover:text-white'
-                      }`}>
-                        {openIndex === idx ? <Minus size={18} /> : <Plus size={18} />}
-                      </div>
-                    </button>
-                    
-                    <AnimatePresence>
-                      {openIndex === idx && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: "circOut" }}
-                        >
-                          <div className="px-8 pb-8">
-                            <div className="bg-gray-50/50 rounded-2xl p-6 border border-gray-100">
-                              <p className="text-slate-600 text-sm md:text-base font-medium leading-relaxed">
-                                {faq.a}
-                              </p>
-                            </div>
-                          </div>
-                        </motion.div>
+                <div className="space-y-3">
+                  {filteredData.find(c => c.category === activeCategory)?.questions.map((faq, idx) => (
+                    <div 
+                      key={idx}
+                      className={cn(
+                        "bg-white border transition-all duration-500 overflow-hidden rounded-[1.5rem]",
+                        openIndex === idx ? "border-blue-600 shadow-2xl shadow-blue-600/5 bg-slate-50/30" : "border-slate-100 hover:border-slate-200"
                       )}
-                    </AnimatePresence>
-                  </div>
-                ))}
+                    >
+                      <button
+                        onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
+                        className="w-full px-8 py-8 flex items-center justify-between text-left"
+                      >
+                        <span className={cn(
+                          "text-base font-black uppercase tracking-tight leading-snug pr-8 transition-colors duration-500",
+                          openIndex === idx ? "text-blue-600" : "text-slate-900"
+                        )}>
+                          {faq.q}
+                        </span>
+                        <div className={cn(
+                          "h-10 w-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-500",
+                          openIndex === idx ? "bg-blue-600 text-white rotate-180" : "bg-slate-50 text-slate-400 group-hover:bg-slate-900 group-hover:text-white"
+                        )}>
+                          {openIndex === idx ? <Minus size={18} strokeWidth={2.5} /> : <Plus size={18} strokeWidth={2.5} />}
+                        </div>
+                      </button>
+                      
+                      <AnimatePresence>
+                        {openIndex === idx && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease: "circOut" }}
+                          >
+                            <div className="px-8 pb-8">
+                              <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-inner">
+                                <p className="text-slate-500 text-lg font-medium leading-relaxed">
+                                  {faq.a}
+                                </p>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ))}
+                </div>
 
                 {filteredData.length === 0 && (
-                  <div className="py-20 text-center bg-white rounded-[3rem] border border-gray-100">
-                    <Search size={40} className="text-gray-200 mx-auto mb-6" />
-                    <h4 className="text-lg font-black text-slate-900 uppercase">No matches found</h4>
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Try searching with different keywords</p>
+                  <div className="py-24 text-center bg-slate-50 rounded-[3rem] border border-slate-100">
+                    <Search size={48} className="text-slate-200 mx-auto mb-6" />
+                    <h4 className="text-xl font-black text-slate-900 uppercase tracking-tight">Zero matches returned</h4>
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mt-3">Try different refinement keywords</p>
                   </div>
                 )}
               </motion.div>

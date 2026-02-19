@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Laptop, Printer, ChevronRight, ArrowRight } from "lucide-react";
+import { Laptop, Printer, ChevronRight, ArrowRight, Settings, Box, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -9,104 +9,162 @@ import printerCat from "@/assets/category/printer_cat.jpg";
 
 export default function Collections() {
   return (
-    <section className="px-6 md:px-10 lg:px-12 py-16 bg-white font-urbanist">
+    <section className="px-6 md:px-10 lg:px-12 py-12 lg:py-16 bg-white font-urbanist relative overflow-hidden">
+      {/* Background Subtle Grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#f1f5f9_1px,transparent_1px)] [background-size:40px_40px] opacity-50 pointer-events-none" />
       
-      {/* --- REFINED HEADING --- */}
-      <div className="flex items-end justify-between mb-8 md:mb-12 border-b border-gray-100 pb-6 md:pb-8">
-        <div>
-          <span className="text-[8px] md:text-[10px] font-black tracking-[0.4em] uppercase text-blue-600 mb-2 block ml-1">Curated Series</span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase leading-none">
-            Shop by <span className="text-slate-400 italic">Department.</span>
+      {/* --- PROFESSIONAL CENTERED HEADER --- */}
+      <div className="relative z-10 flex flex-col items-center text-center mb-20">
+        <div className="max-w-4xl">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+            <span className="text-[10px] font-black tracking-[0.5em] text-blue-600 uppercase">Premium Selection</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">
+            SHOP BY <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-400 italic">DEPARTMENT.</span>
           </h2>
         </div>
-        <Link to="/shop" className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-900 flex items-center gap-2 hover:text-blue-600 transition-colors pb-1">
-          View All <ArrowRight size={14} />
-        </Link>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-1 bg-slate-100 border border-slate-100">
         
-        {/* --- LAPTOP CATEGORY --- */}
+        {/* --- LAPTOP MODULE --- */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="group relative h-[400px] md:h-[550px] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-gray-50 border border-gray-100 transition-all duration-500 hover:border-blue-500/30"
+          className="group relative h-[500px] lg:h-[650px] overflow-hidden bg-white"
         >
+          {/* Technical HUD Frame */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-blue-600 z-20 m-8 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-blue-600 z-20 m-8 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+          
+          <div className="absolute top-8 left-8 z-20">
+          </div>
+
           <div className="absolute inset-0 w-full h-full">
             <img 
               src={laptopCat} 
               alt="Premium Laptops"
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 shadow-none"
+              className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 group-hover:opacity-90 grayscale-[0.5] group-hover:grayscale-0"
             />
-            {/* Gradient Overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-700" />
           </div>
 
-          <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-lg md:rounded-xl bg-blue-600 text-white text-[8px] md:text-[10px] font-black tracking-[0.2em] uppercase mb-3 md:mb-4">
-              <Laptop size={12} md:size={14} /> High-End Computing
+          <div className="absolute bottom-12 left-12 right-12 z-10">
+            <div className="flex items-center gap-3 mb-6">
+               <div className="h-10 w-10 bg-slate-900 text-white flex items-center justify-center shadow-2xl">
+                  <Laptop size={18} strokeWidth={1.5} />
+               </div>
+               <div className="h-[1px] w-12 bg-slate-900/20" />
+               <span className="text-[10px] font-black text-slate-900 uppercase tracking-widest">High-End Computing</span>
             </div>
-            <h3 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2 md:mb-4 uppercase leading-none">
+
+            <h3 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 uppercase leading-[0.85]">
               LAPTOP <br /><span className="text-blue-600 italic">SERIES.</span>
             </h3>
-            <p className="text-slate-600 text-sm md:text-lg font-bold max-w-xs mb-6 md:mb-8 leading-relaxed">
-              From ultra-thin portables to heavy-duty gaming rigs.
+            
+            <p className="text-slate-500 text-sm md:text-base font-bold max-w-xs mb-10 leading-relaxed uppercase tracking-tight">
+              FROM ULTRA-THIN PORTABLES TO HEAVY-DUTY ARCHITECTURAL RIGS.
             </p>
-            <div className="flex items-center gap-2 md:gap-3">
+
+            <div className="flex items-center gap-4">
               <Link to="/shop?category=laptop-computers">
-                <Button size="lg" className="bg-black hover:bg-blue-600 text-white rounded-xl md:rounded-2xl px-6 md:px-10 h-12 md:h-14 font-black text-[10px] md:text-xs tracking-widest transition-all shadow-2xl shadow-black/10">
-                  EXPLORE MODELS
-                </Button>
-              </Link>
-              <Link to="/shop?category=laptop-computers" className="h-12 w-12 md:h-14 md:w-14 rounded-xl md:rounded-2xl bg-white border border-gray-200 flex items-center justify-center hover:bg-blue-50 hover:border-blue-200 transition-all shadow-sm">
-                <ChevronRight size={20} md:size={24} className="text-black" />
+                <button className="h-14 px-10 bg-slate-900 text-white hover:bg-blue-600 font-black text-[10px] uppercase tracking-[0.3em] transition-all duration-500 flex items-center gap-4 shadow-2xl">
+                  INITIALIZE ACCESS <ArrowRight size={16} />
+                </button>
               </Link>
             </div>
+          </div>
+
+          {/* Side Status Bar */}
+          <div className="absolute right-0 top-0 h-full w-1.5 bg-slate-50 overflow-hidden">
+             <motion.div 
+               initial={{ height: 0 }}
+               whileInView={{ height: '100%' }}
+               transition={{ duration: 2 }}
+               className="w-full bg-blue-600/20"
+             />
           </div>
         </motion.div>
 
-        {/* --- PRINTER CATEGORY --- */}
+        {/* --- PRINTER MODULE --- */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="group relative h-[400px] md:h-[550px] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-gray-50 border border-gray-100 transition-all duration-500 hover:border-purple-500/30"
+          className="group relative h-[500px] lg:h-[650px] overflow-hidden bg-white"
         >
+          {/* Technical HUD Frame */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-purple-600 z-20 m-8 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-purple-600 z-20 m-8 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+          <div className="absolute top-8 left-8 z-20">
+          </div>
+
           <div className="absolute inset-0 w-full h-full">
             <img 
               src={printerCat} 
               alt="Premium Printers"
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 shadow-none"
+              className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 group-hover:opacity-90 grayscale-[0.5] group-hover:grayscale-0"
             />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-700" />
           </div>
 
-          <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-lg md:rounded-xl bg-purple-600 text-white text-[8px] md:text-[10px] font-black tracking-[0.2em] uppercase mb-3 md:mb-4">
-              <Printer size={12} md:size={14} /> Professional Printing
+          <div className="absolute bottom-12 left-12 right-12 z-10">
+            <div className="flex items-center gap-3 mb-6">
+               <div className="h-10 w-10 bg-slate-900 text-white flex items-center justify-center shadow-2xl">
+                  <Printer size={18} strokeWidth={1.5} />
+               </div>
+               <div className="h-[1px] w-12 bg-slate-900/20" />
+               <span className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Enterprise Printing</span>
             </div>
-            <h3 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2 md:mb-4 uppercase leading-none">
+
+            <h3 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 uppercase leading-[0.85]">
               PRINTER <br /><span className="text-purple-600 italic">SOLUTIONS.</span>
             </h3>
-            <p className="text-slate-600 text-sm md:text-lg font-bold max-w-xs mb-6 md:mb-8 leading-relaxed">
-              Precision scanning and high-speed printing solutions.
+            
+            <p className="text-slate-500 text-sm md:text-base font-bold max-w-xs mb-10 leading-relaxed uppercase tracking-tight">
+              PRECISION SCANNING AND HIGH-SPEED SECURE PRINTING NODES.
             </p>
-            <div className="flex items-center gap-2 md:gap-3">
+
+            <div className="flex items-center gap-4">
               <Link to="/shop?category=printers">
-                <Button size="lg" className="bg-black hover:bg-purple-600 text-white rounded-xl md:rounded-2xl px-6 md:px-10 h-12 md:h-14 font-black text-[10px] md:text-xs tracking-widest transition-all shadow-2xl shadow-black/10">
-                  VIEW CATALOG
-                </Button>
-              </Link>
-              <Link to="/shop?category=printers" className="h-12 w-12 md:h-14 md:w-14 rounded-xl md:rounded-2xl bg-white border border-gray-100 flex items-center justify-center hover:bg-blue-50 hover:border-purple-200 transition-all shadow-sm">
-                <ChevronRight size={20} md:size={24} className="text-black" />
+                <button className="h-14 px-10 bg-slate-900 text-white hover:bg-purple-600 font-black text-[10px] uppercase tracking-[0.3em] transition-all duration-500 flex items-center gap-4 shadow-2xl">
+                  VIEW CATALOG <ArrowRight size={16} />
+                </button>
               </Link>
             </div>
+          </div>
+
+          {/* Side Status Bar */}
+          <div className="absolute right-0 top-0 h-full w-1.5 bg-slate-50 overflow-hidden">
+             <motion.div 
+               initial={{ height: 0 }}
+               whileInView={{ height: '100%' }}
+               transition={{ duration: 2 }}
+               className="w-full bg-purple-600/20"
+             />
           </div>
         </motion.div>
 
       </div>
+
+      {/* Global Bottom Status Row */}
+      <div className="mt-16 flex items-center justify-center px-2">
+         <div className="h-px flex-1 bg-slate-100" />
+      </div>
+
+      <style>{`
+        .animate-spin-slow {
+          animation: spin 8s linear infinite;
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </section>
   );
 }

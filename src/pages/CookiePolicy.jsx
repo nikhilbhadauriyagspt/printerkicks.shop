@@ -127,7 +127,7 @@ export default function CookiePolicy() {
       <h2>8. SALE OR SHARING OF PERSONAL INFORMATION</h2>
       <p>We do not sell personal information. If cookies are considered “sharing” under certain US state privacy laws (such as targeted advertising), you may exercise your rights by:</p>
       <ul>
-        <li>Emailing: <a href="mailto:info@primefixsolutions.co">info@primefixsolutions.co</a></li>
+        <li>Emailing: <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a></li>
         <li>Visiting: <Link to="/contact">http://primefixsolutions.co/contact</Link></li>
       </ul>
 
@@ -147,7 +147,7 @@ export default function CookiePolicy() {
           <p>3014 Dauphine St Ste A PM3 357287</p>
           <p>New Orleans, LA 70117</p>
           <p>United States</p>
-          <p className="pt-4 flex items-center gap-3 text-blue-600">info@primefixsolutions.co</p>
+          <p className="pt-4 flex items-center gap-3 text-blue-600">info@printerkicks.shop</p>
         </address>
       </div>
     </PolicyLayout>
