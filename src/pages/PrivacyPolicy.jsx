@@ -282,7 +282,7 @@ export default function PrivacyPolicy() {
       <p>If you have questions or comments about this notice, you may email us at <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a> or contact us by post at:</p>
       <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 my-8 not-prose">
         <address className="not-italic text-slate-700 font-bold leading-relaxed">
-                                           PrinterKicks LLC<br />          Premium Hardware Retailer<br />                     4904 Alpinis Dr<br />
+                                           PrinterKicks LLC<br />          <br />                     4904 Alpinis Dr<br />
                      Raleigh, NC 27616<br />          United States
         </address>
       </div>
