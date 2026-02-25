@@ -16,8 +16,7 @@ export default function TermsAndConditions() {
         We operate the website <a href="http://printerkicks.shop/">http://printerkicks.shop/</a> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
       </p>
       <p>
-        PrinterKicks is your trusted destination for authentic, high-performance printers and printing accessories from HP and other leading technology brands.
-      </p>
+                 PrinterKicks is your trusted destination for authentic, high-performance printers and printing accessories from leading technology brands.      </p>
       <p>
         You can contact us by email at <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a>, or by mail to 4904 Alpinis Dr, Raleigh, NC 27616, United States.
       </p>

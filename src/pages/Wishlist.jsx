@@ -138,7 +138,7 @@ export default function Wishlist() {
           <div className="flex items-center gap-10">
              <div className="flex items-center gap-3">
                 <ShieldCheck size={18} className="text-blue-600" />
-                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Authorized Listings Only</span>
+                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Verified Listings Only</span>
              </div>
              <div className="flex items-center gap-3">
                 <Sparkles size={18} className="text-blue-600" />

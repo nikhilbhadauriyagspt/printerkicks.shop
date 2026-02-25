@@ -85,7 +85,7 @@ export default function About() {
                 </p>
                 <div className="h-px w-full bg-slate-100" />
                 <p className="text-base font-bold text-slate-400 leading-relaxed">
-                  Headquartered in Louisiana, we have deployed a national infrastructure that ensures professionals have direct access to precision-grade units.
+                  Headquartered in Raleigh, North Carolina, we have deployed a national infrastructure that ensures professionals have direct access to precision-grade units.
                 </p>
              </div>
           </div>

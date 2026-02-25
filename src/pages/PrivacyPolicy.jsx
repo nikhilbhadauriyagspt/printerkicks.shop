@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
                  This Privacy Notice for PrinterKicks LLC ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:      </p>
       <ul>
         <li>Visit our website at <a href="http://primefixsolutions.co/">http://printerkicks.shop/</a> or any website of ours that links to this Privacy Notice</li>
-                 <li>Use Printers, Consumables & Accessories. PrinterKicks is your trusted destination for authentic, high-performance printers and printing accessories from HP and other leading technology brands.</li>        <li>Engage with us in other related ways, including any marketing or events</li>
+                                   <li>Use Printers, Consumables & Accessories. PrinterKicks is your trusted destination for authentic, high-performance printers and printing accessories from leading technology brands.</li>        <li>Engage with us in other related ways, including any marketing or events</li>
       </ul>
       <p>
         Questions or concerns? Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a>.
@@ -282,8 +282,7 @@ export default function PrivacyPolicy() {
       <p>If you have questions or comments about this notice, you may email us at <a href="mailto:info@printerkicks.shop">info@printerkicks.shop</a> or contact us by post at:</p>
       <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 my-8 not-prose">
         <address className="not-italic text-slate-700 font-bold leading-relaxed">
-                     PrinterKicks LLC<br />          Authorised HP Partner<br />
-                     4904 Alpinis Dr<br />
+                                           PrinterKicks LLC<br />          Premium Hardware Retailer<br />                     4904 Alpinis Dr<br />
                      Raleigh, NC 27616<br />          United States
         </address>
       </div>

@@ -10,7 +10,7 @@ const features = [
   {
     icon: <ShieldCheck size={20} />,
     title: "Official Warranty",
-    desc: "Authorized Partner Coverage",
+    desc: "Premium Brand Coverage",
     label: "WARRANTY PROTECTION"
   },
   {

@@ -158,8 +158,7 @@ export default function UserSignup() {
         <div className="mt-10 flex flex-col items-center gap-4 opacity-40">
            <ShieldCheck size={16} className="text-slate-900" />
            <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em] text-center">
-             AUTHORIZED PARTNER NETWORK PROTOCOL // 2026
-           </p>
+                           SECURE NETWORK PROTOCOL // 2026           </p>
         </div>
       </div>
     </div>

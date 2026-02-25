@@ -307,8 +307,7 @@ export default function Checkout() {
                       <img src={item.images ? (typeof item.images === 'string' ? JSON.parse(item.images)[0] : item.images[0]) : ''} className="max-w-full max-h-full object-contain mix-blend-multiply" alt="" />
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-center">
-                      <span className="text-[8px] font-black text-blue-600 uppercase tracking-widest mb-1">{item.brand_name || 'HP AUTH'}</span>
-                      <h4 className="text-[12px] font-black text-slate-900 uppercase truncate leading-tight group-hover:text-blue-600 transition-colors">{item.name}</h4>
+                                             <span className="text-[8px] font-black text-blue-600 uppercase tracking-widest mb-1">{item.brand_name || 'AUTHENTIC'}</span>                      <h4 className="text-[12px] font-black text-slate-900 uppercase truncate leading-tight group-hover:text-blue-600 transition-colors">{item.name}</h4>
                       <div className="flex items-center justify-between mt-2">
                          <p className="text-[10px] font-bold text-slate-400">Qty: {item.quantity}</p>
                          <p className="text-[11px] font-black text-slate-900">${(item.price * item.quantity).toLocaleString()}</p>

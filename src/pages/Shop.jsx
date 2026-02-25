@@ -117,7 +117,7 @@ export default function Shop() {
     <div className="bg-white min-h-screen font-urbanist">
       <SEO 
         title="Premium Catalog | PrinterKicks" 
-        description="Browse our authorized catalog of high-performance tech solutions."
+        description="Browse our curated catalog of high-performance systems solutions."
       />
       
       {/* --- PROFESSIONAL PAGE HEADER --- */}

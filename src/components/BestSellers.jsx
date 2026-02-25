@@ -98,7 +98,7 @@ export default function BestSellers({ products = [] }) {
                   
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
-                       <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest">{p.brand_name || 'HP Authorized'}</span>
+                       <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest">{p.brand_name}</span>
                     </div>
                     <h3 className="font-black text-slate-900 text-lg uppercase tracking-tight line-clamp-3 leading-[1.1] min-h-[3.3rem]">
                       {p.name}

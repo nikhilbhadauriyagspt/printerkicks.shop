@@ -58,7 +58,7 @@ export default function UserLogin() {
              <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em]">Secure Access Hub</span>
           </div>
           <h1 className="text-4xl font-black text-slate-900 uppercase tracking-tighter mb-2 leading-none">Welcome Back.</h1>
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Authorized Personnel Only</p>
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Customer Access Node</p>
         </div>
 
         {/* --- LOGIN MODULE --- */}
@@ -148,8 +148,7 @@ export default function UserLogin() {
               <Terminal size={16} className="text-slate-900" />
            </div>
            <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em] text-center leading-relaxed">
-             PrinterKicks Infrastructure // Global Operations <br /> Authentication Node Louisiana Node
-           </p>
+                           PrinterKicks Infrastructure // Global Operations <br /> Customer Access Node           </p>
         </div>
       </div>
     </div>

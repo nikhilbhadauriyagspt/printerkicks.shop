@@ -140,8 +140,7 @@ export default function CookiePolicy() {
       <p>If you have any questions regarding this Cookie Policy, please contact:</p>
       <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 my-8 not-prose">
         <address className="not-italic text-slate-700 font-bold leading-relaxed space-y-2">
-                     <p>PrinterKicks LLC</p>          <p>Authorised HP Partner</p>
-                     <p>4904 Alpinis Dr</p>
+                                           <p>PrinterKicks LLC</p>          <p>Premium Hardware Retailer</p>                     <p>4904 Alpinis Dr</p>
                      <p>Raleigh, NC 27616</p>          <p>United States</p>
           <p className="pt-4 flex items-center gap-3 text-blue-600">info@printerkicks.shop</p>
         </address>

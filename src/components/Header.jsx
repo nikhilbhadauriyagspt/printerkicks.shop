@@ -290,7 +290,7 @@ export default function Header() {
                         className="absolute top-full right-0 mt-3 w-56 bg-white border border-gray-100 p-2 z-[110] rounded-xl shadow-xl"
                       >
                         <div className="px-4 py-2 border-b border-slate-50 mb-1">
-                          <p className="text-[8px] font-black text-blue-600 uppercase tracking-widest">Authorized Access</p>
+                          <p className="text-[8px] font-black text-blue-600 uppercase tracking-widest">Verified Session</p>
                           <p className="text-xs font-black text-slate-900 truncate">{user.name}</p>
                         </div>
                         <Link to="/profile" className="flex items-center gap-3 px-4 py-2.5 text-[10px] font-bold text-slate-500 hover:text-blue-600 hover:bg-slate-50 transition-all uppercase tracking-widest rounded-lg"><User size={14} /> Profile</Link>
@@ -598,7 +598,7 @@ export default function Header() {
                         <button onClick={handleLogout} className="w-full flex items-center gap-4 px-4 py-4 text-[11px] font-black uppercase tracking-widest text-red-500 hover:bg-red-50 rounded-xl"><LogOut size={18} /> Terminate Session</button>
                      </div>
                    ) : (
-                     <Link to="/login" onClick={() => setIsSidebarOpen(false)} className="flex items-center gap-4 px-4 py-4 bg-blue-600 text-white rounded-xl text-[11px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20"><User size={18} /> Authorized Login</Link>
+                     <Link to="/login" onClick={() => setIsSidebarOpen(false)} className="flex items-center gap-4 px-4 py-4 bg-blue-600 text-white rounded-xl text-[11px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20"><User size={18} /> Secure Login</Link>
                    )}
                 </div>
               </div>
