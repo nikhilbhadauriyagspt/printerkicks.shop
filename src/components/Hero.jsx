@@ -18,17 +18,17 @@ const slides = [
     tag: "HIGH-SPEED OUTPUT",
     title: "Enterprise",
     highlight: "Velocity.",
-    desc: "HP LaserJet Enterprise. Engineered for high-load cycles and unmatched monochrome precision in demanding environments.",
+    desc: "Engineered for high-load cycles and unmatched monochrome precision in demanding environments.",
     image: banner1,
     link: "/category/printers",
     specs: ["65 PPM", "DUAL-HEAD SCAN", "BIO-TONER"]
   },
   {
     id: "PRO-02",
-    tag: "TECHNICAL PRECISION",
+    tag: "PRECISION ENGINEERING",
     title: "Master",
     highlight: "Graphics.",
-    desc: "DesignJet Series. Delivering gallery-grade color accuracy and large-format reliability for architectural and creative firms.",
+    desc: "Delivering gallery-grade color accuracy and large-format reliability for architectural and creative firms.",
     image: banner2,
     link: "/category/printers",
     specs: ["2400 DPI", "10-INK SYSTEM", "WIDE-FORMAT"]
@@ -38,7 +38,7 @@ const slides = [
     tag: "SUSTAINABLE NODES",
     title: "Infinite",
     highlight: "Efficiency.",
-    desc: "HP Smart Tank. Cartridge-free high-capacity printing infrastructure designed for the modern, eco-conscious workspace.",
+    desc: "Cartridge-free high-capacity printing infrastructure designed for the modern, eco-conscious workspace.",
     image: banner3,
     link: "/category/printers",
     specs: ["2YR INK INCL.", "WI-FI SELF-HEAL", "ZERO WASTE"]
@@ -48,7 +48,7 @@ const slides = [
     tag: "INFRASTRUCTURE",
     title: "Secure",
     highlight: "Workflows.",
-    desc: "LaserJet Pro. Enterprise-grade security integrated into every layer of your printing infrastructure. Reliable. Fast. Pro.",
+    desc: "Enterprise-grade security integrated into every layer of your printing infrastructure. Reliable. Fast. Pro.",
     image: banner4,
     link: "/category/printers",
     specs: ["WOLF PRO SEC", "60 PPM", "CLOUD SYNC"]
@@ -153,19 +153,6 @@ export default function Hero() {
                       <ArrowRight size={18} className="relative z-10 group-hover:translate-x-2 transition-transform" />
                     </button>
                   </Link>
-                  
-                  <div className="flex items-center gap-6">
-                     <div className="h-12 w-px bg-white/10" />
-                     <div className="flex items-center gap-4">
-                        <div className="h-10 w-10 bg-white p-1.5 flex items-center justify-center">
-                           <img src="/brands/hp.png" alt="HP" className="w-full h-full object-contain" />
-                        </div>
-                        <div className="flex flex-col">
-                           <span className="text-[10px] font-black text-white/40 uppercase tracking-widest leading-none">Official</span>
-                           <span className="text-xs font-black text-white uppercase tracking-tight">Authorized HP Partner</span>
-                        </div>
-                     </div>
-                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>

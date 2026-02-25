@@ -65,7 +65,7 @@ export default function Home() {
             accessories,
             mixedArrivals: shuffled,
             categories: catRes.data,
-            brands: brandRes.data,
+            brands: brandRes.data.filter(b => b.name.toLowerCase() !== 'hp'),
             loading: false
           });
         }
@@ -81,8 +81,8 @@ export default function Home() {
   return (
     <div className="bg-white font-snpro overflow-x-hidden text-slate-900">
       <SEO 
-        title="Authorized HP Partner | Premium Printers & Hardware" 
-        description="Premium destination for authorized HP printers, precision tech, and essential accessories. Delivering excellence in tech solutions across the USA."
+        title="Premium Printers & Hardware" 
+        description="Premium destination for printers, precision hardware, and essential accessories. Delivering excellence in hardware solutions across the USA."
       />
       
       <Hero />
@@ -114,10 +114,10 @@ export default function Home() {
                <div className="h-px w-12 bg-blue-600/30" />
             </div>
             <h2 className="text-5xl lg:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-[0.9] mb-10">
-              EXPERT TECH <br /> <span className="text-blue-600">CONSULTING.</span>
+              EXPERT HARDWARE <br /> <span className="text-blue-600">CONSULTING.</span>
             </h2>
             <p className="text-slate-500 text-lg font-medium leading-relaxed mb-12 max-w-md">
-              Deploy specialized technical knowledge to your infrastructure. Our certified HP architects provide precision-engineered scaling solutions for professional workflows.
+              Deploy specialized expert knowledge to your infrastructure. Our certified architects provide precision-engineered scaling solutions for professional workflows.
             </p>
             <Link to="/contact" className="h-16 px-12 bg-slate-900 text-white hover:bg-blue-600 transition-all duration-500 font-black text-xs uppercase tracking-widest flex items-center w-fit gap-4 shadow-2xl group rounded-full">
               REQUEST ARCHITECT <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
@@ -126,9 +126,8 @@ export default function Home() {
 
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-200 border border-slate-200 shadow-2xl rounded-none">
             {[
-              { icon: <Shield size={32} />, title: "Authorized Warranty", sub: "Official hardware protection protocol", color: "text-blue-600" },
               { icon: <Wrench size={32} />, title: "Precision Setup", sub: "Optimized environment configuration", color: "text-slate-900" },
-              { icon: <Zap size={32} />, title: "Priority Response", sub: "SLA-backed technical assistance", color: "text-blue-600" },
+              { icon: <Zap size={32} />, title: "Priority Response", sub: "SLA-backed expert assistance", color: "text-blue-600" },
               { icon: <Layers size={32} />, title: "Enterprise Scaling", sub: "Multi-node deployment strategies", color: "text-slate-900" }
             ].map((item, i) => (
               <div key={i} className="p-12 bg-white hover:bg-slate-50 transition-all duration-500 group cursor-default">
@@ -162,7 +161,7 @@ export default function Home() {
             <div className="flex gap-16">
                <div className="flex flex-col">
                   <span className="text-5xl font-black text-slate-900 tracking-tighter">500+</span>
-                  <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest mt-3">Strategic Partners</span>
+                  <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest mt-3">Active Clients</span>
                </div>
                <div className="w-px h-16 bg-slate-100" />
                <div className="flex flex-col">

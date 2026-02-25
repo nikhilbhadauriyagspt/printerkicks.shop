@@ -45,7 +45,7 @@ export default function Contact() {
     <div className="bg-white min-h-screen pt-32 pb-20 font-urbanist overflow-hidden">
       <SEO 
         title="Contact Us | PrinterKicks" 
-        description="Get in touch with PrinterKicks for technical support, bulk orders, or product inquiries. Our experts are here to help."
+        description="Get in touch with PrinterKicks for expert support, bulk orders, or product inquiries. Our experts are here to help."
       />
       
       {/* --- PROFESSIONAL PAGE HEADER --- */}
@@ -62,7 +62,7 @@ export default function Contact() {
             GET IN <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-400 italic">TOUCH.</span>
           </h1>
           <p className="text-slate-500 text-lg font-medium leading-relaxed max-w-2xl uppercase tracking-tight">
-            Deploy specialized inquiries to our technical team. We provide precision assistance for authorized HP infrastructure and enterprise configurations.
+            Deploy specialized inquiries to our expert team. We provide precision assistance for infrastructure and enterprise configurations.
           </p>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function Contact() {
               <div className="h-12 w-12 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all">
                 <Mail size={20} strokeWidth={1.5} />
               </div>
-              <p className="text-[9px] font-black text-blue-600 uppercase tracking-[0.3em] mb-2">Technical Dispatch</p>
+              <p className="text-[9px] font-black text-blue-600 uppercase tracking-[0.3em] mb-2">Expert Dispatch</p>
               <h4 className="text-xl font-black text-slate-900 uppercase tracking-tight">info@printerkicks.shop</h4>
               <div className="mt-6 flex items-center gap-2">
                  <div className="h-1 w-1 rounded-full bg-emerald-500" />
@@ -91,15 +91,6 @@ export default function Contact() {
               <p className="text-[9px] font-black text-blue-600 uppercase tracking-[0.3em] mb-2">Physical Node</p>
               <h4 className="text-xl font-black text-slate-900 uppercase tracking-tight leading-tight">4904 Alpinis Dr <br/> Raleigh, NC 27616</h4>
             </div>
-
-            <div className="p-10 rounded-[2.5rem] bg-slate-900 text-white relative overflow-hidden shadow-2xl">
-              <div className="absolute top-0 right-0 p-6 opacity-10">
-                 <Headphones size={80} strokeWidth={1} />
-              </div>
-              <img src="/brands/hp.png" alt="HP" className="h-8 w-auto object-contain rounded mb-6 invert grayscale brightness-200" />
-              <h4 className="text-lg font-black uppercase tracking-tight mb-2">AUTHORIZED PARTNER</h4>
-              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-relaxed">Verified technical support & genuine deployment node.</p>
-            </div>
           </div>
 
           {/* --- CONTACT FORM MODULE --- */}
@@ -111,7 +102,7 @@ export default function Contact() {
                     <CheckCircle2 size={32} strokeWidth={1.5} />
                   </div>
                   <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-3">Transmission Successful.</h2>
-                  <p className="text-slate-400 font-bold uppercase tracking-widest text-[9px] mb-10">A technical architect will respond within the next operational cycle.</p>
+                  <p className="text-slate-400 font-bold uppercase tracking-widest text-[9px] mb-10">An expert architect will respond within the next operational cycle.</p>
                   <button onClick={() => setStatus(null)} className="h-12 px-8 bg-slate-900 text-white rounded-full text-[9px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-xl">Reset Terminal</button>
                 </motion.div>
               ) : (
@@ -153,7 +144,7 @@ export default function Contact() {
                           className="w-full h-14 px-5 bg-slate-50 border border-slate-100 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-4 focus:ring-blue-600/5 outline-none text-xs font-bold uppercase transition-all appearance-none cursor-pointer shadow-inner pr-12"
                         >
                           <option>General Inquiry</option>
-                          <option>Technical Support</option>
+                          <option>Expert Support</option>
                           <option>Order Log Access</option>
                           <option>Bulk Procurement</option>
                           <option>Warranty Claim</option>

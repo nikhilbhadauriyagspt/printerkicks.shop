@@ -11,7 +11,7 @@ export default function About() {
     <div className="bg-white min-h-screen font-urbanist overflow-hidden">
       <SEO 
         title="Our Enterprise Journey | PrinterKicks" 
-        description="Learn about PrinterKicks, our vision to redefine tech experience, and our commitment as an authorized HP partner."
+        description="Learn about PrinterKicks, our vision to redefine professional systems, and our commitment to premium hardware solutions."
       />
 
       {/* --- REFINED HERO --- */}
@@ -36,11 +36,6 @@ export default function About() {
               className="max-w-2xl"
             >
               <div className="flex items-center gap-3 mb-8">
-                 <div className="flex items-center gap-2.5 px-4 py-2 bg-blue-600 text-white rounded-lg shadow-lg">
-                    <img src="/brands/hp.png" alt="HP" className="h-4 w-auto object-contain rounded brightness-200" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em]">Authorized Partner</span>
-                 </div>
-                 <div className="h-px w-8 bg-white/10" />
                  <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest leading-none">Established 2026</span>
               </div>
 
@@ -86,7 +81,7 @@ export default function About() {
              </h2>
              <div className="space-y-8 max-w-lg">
                 <p className="text-lg font-medium text-slate-500 leading-relaxed uppercase tracking-tight">
-                  PrinterKicks was engineered to redefine the professional tech landscape. We observed a critical deficiency in authorized hardware accessibility.
+                  PrinterKicks was engineered to redefine the professional systems landscape. We observed a critical deficiency in authorized hardware accessibility.
                 </p>
                 <div className="h-px w-full bg-slate-100" />
                 <p className="text-base font-bold text-slate-400 leading-relaxed">
@@ -122,7 +117,7 @@ export default function About() {
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-600">MISSION_ALPHA</span>
             <h3 className="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tighter leading-[0.95]">EMPOWERING <br /><span className="text-slate-400">PRECISION.</span></h3>
             <p className="text-slate-500 font-medium text-base leading-relaxed max-w-sm uppercase tracking-tight">
-              To provide the definitive infrastructure for professional tech retail via unauthorized asset management.
+              To provide the definitive infrastructure for professional hardware retail via expert asset management.
             </p>
             <div className="h-1 w-10 bg-blue-600" />
           </div>
@@ -130,7 +125,7 @@ export default function About() {
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500">VISION_BETA</span>
             <h3 className="text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[0.95]">NATIONAL <br /><span className="text-slate-600">COMMAND.</span></h3>
             <p className="text-slate-400 font-medium text-base leading-relaxed max-w-sm uppercase tracking-tight">
-              To become the primary gateway for authorized tech ecosystems, setting the standard for expert service.
+              To become the primary gateway for professional systems ecosystems, setting the standard for expert service.
             </p>
             <div className="h-1 w-10 bg-white/20" />
           </div>
@@ -152,7 +147,6 @@ export default function About() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
-              { title: "AUTH PARTNER", icon: ShieldCheck },
               { title: "EXPERT GUIDANCE", icon: Zap },
               { title: "PRIORITY LOGISTICS", icon: Package },
               { title: "CLIENT CARE", icon: Heart },

@@ -72,13 +72,9 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-slate-500 text-lg font-medium leading-relaxed max-w-md mb-10">
-              Defining the future of professional tech infrastructure. PrinterKicks is an Authorized HP Partner specializing in precision workstations and enterprise solutions.
+              Defining the future of professional systems infrastructure. PrinterKicks specializes in precision workstations and enterprise solutions.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-               <div className="flex items-center gap-3 px-5 py-2.5 bg-slate-50 border border-slate-100 rounded-2xl shadow-sm">
-                  <img src="/brands/hp.png" alt="HP" className="h-5 w-auto object-contain rounded-full" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.1em] text-slate-900">Authorized Partner</span>
-               </div>
                <div className="flex items-center gap-3 px-5 py-2.5 bg-slate-50 border border-slate-100 rounded-2xl shadow-sm">
                   <Globe size={18} className="text-blue-600" />
                   <span className="text-[10px] font-black uppercase tracking-[0.1em] text-slate-900">Global Logistics</span>

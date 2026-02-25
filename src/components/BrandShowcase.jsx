@@ -25,12 +25,12 @@ export default function BrandShowcase({ brands = [] }) {
           <div className="flex items-center justify-center gap-4 mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
             <span className="text-[10px] font-black tracking-[0.6em] uppercase text-blue-600 block">
-              OUR STRATEGIC PARTNERS
+              TOP BRANDS
             </span>
             <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">
-            PREMIUM <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-400 italic">LINEUP.</span>
+            CURATED <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-400 italic">SELECTION.</span>
           </h2>
           <p className="mt-6 text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em] max-w-sm mx-auto leading-relaxed">
             Global leaders in professional infrastructure & tech innovation.
@@ -71,9 +71,6 @@ export default function BrandShowcase({ brands = [] }) {
                        </span>
                        <ArrowUpRight size={12} className="text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </div>
-                    <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">
-                      Official Partner Node
-                    </span>
                   </div>
                 </div>
 
@@ -92,7 +89,7 @@ export default function BrandShowcase({ brands = [] }) {
       <div className="mt-12 flex items-center justify-center gap-8 px-6">
          <div className="flex items-center gap-3">
             <ShieldCheck size={14} className="text-blue-600" />
-            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Authorized Channel Partners</span>
+            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Quality Assurance</span>
          </div>
          <div className="h-3 w-px bg-slate-200" />
          <div className="flex items-center gap-3">

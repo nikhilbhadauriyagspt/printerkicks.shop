@@ -181,66 +181,54 @@ export default function Header() {
         <div className="max-w-[1920px] mx-auto px-6 md:px-10 lg:px-12 relative">
           <div className="flex items-center justify-between">
             
-            {/* --- LEFT: LOGO & NAV --- */}
-            <div className="flex items-center gap-64">
-              <Link to="/" className="flex items-center gap-5 group relative">
-                <img 
-                  src="/logo/printerkicks.png" 
-                  alt="PRINTERKICKS" 
-                  className="h-10 lg:h-12 w-auto object-contain transition-all duration-500" 
-                />
-                <div className="h-8 w-px bg-slate-200 hidden sm:block" />
-                <div className="hidden sm:flex flex-col justify-center leading-none">
-                  <span className="text-[7px] font-black text-slate-400 uppercase tracking-[0.3em] mb-1">A Subsidiary of</span>
-                  <span className="text-[18px] font-black text-slate-900 tracking-tighter">PrimeFix Solutions</span>
-                </div>
-              </Link>
+            {/* --- LEFT: LOGO --- */}
+            <Link to="/" className="flex items-center gap-5 group relative">
+              <img 
+                src="/logo/printerkicks.png" 
+                alt="PRINTERKICKS" 
+                className="h-10 lg:h-12 w-auto object-contain transition-all duration-500" 
+              />
+              <div className="h-8 w-px bg-slate-200 hidden sm:block" />
+              <div className="hidden sm:flex flex-col justify-center leading-none">
+                <span className="text-[7px] font-black text-slate-400 uppercase tracking-[0.3em] mb-1">A Subsidiary of</span>
+                <span className="text-[18px] font-black text-slate-900 tracking-tighter">PrimeFix Solutions</span>
+              </div>
+            </Link>
 
-              <nav className="hidden xl:flex items-center gap-1">
-                {[
-                  { name: 'Home', path: '/', icon: <Home size={14} /> },
-                  { name: 'Store', path: '/shop' },
-                  { name: 'About', path: '/about' },
-                  { name: 'Contact', path: '/contact' },
-                  { name: 'FAQ', path: '/faq' }
-                ].map((link) => {
-                  const isActive = location.pathname === link.path;
-                  return (
-                    <Link 
-                      key={link.name} 
-                      to={link.path} 
-                      className={cn(
-                        "px-4 py-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all flex items-center gap-2 group relative",
-                        isActive ? "text-blue-600" : "text-slate-500 hover:text-slate-900"
-                      )}
-                    >
-                      {link.name}
-                      {isActive && (
-                        <motion.div 
-                          layoutId="headerNavMarker" 
-                          className="absolute bottom-0 left-4 right-4 h-[2px] bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.3)]" 
-                        />
-                      )}
-                    </Link>
-                  );
-                })}
-              </nav>
-            </div>
+            {/* --- CENTER: NAV --- */}
+            <nav className="hidden xl:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+              {[
+                { name: 'Home', path: '/', icon: <Home size={14} /> },
+                { name: 'Store', path: '/shop' },
+                { name: 'About', path: '/about' },
+                { name: 'Contact', path: '/contact' },
+                { name: 'FAQ', path: '/faq' }
+              ].map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link 
+                    key={link.name} 
+                    to={link.path} 
+                    className={cn(
+                      "px-4 py-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all flex items-center gap-2 group relative",
+                      isActive ? "text-blue-600" : "text-slate-500 hover:text-slate-900"
+                    )}
+                  >
+                    {link.name}
+                    {isActive && (
+                      <motion.div 
+                        layoutId="headerNavMarker" 
+                        className="absolute bottom-0 left-4 right-4 h-[2px] bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.3)]" 
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
 
             {/* --- RIGHT: ACTIONS --- */}
             <div className="flex items-center gap-4">
               
-              {/* HP BRANDING BADGE */}
-              <div className="hidden min-[1550px]:flex items-center gap-4 py-2 px-5 bg-slate-50/50 rounded-2xl border border-slate-100 mr-2">
-                 <div className="h-9 w-9 bg-white p-1.5 flex items-center justify-center rounded-xl shadow-sm border border-slate-100">
-                    <img src="/brands/hp.png" alt="HP" className="w-full h-full object-contain" />
-                 </div>
-                 <div className="flex flex-col leading-none">
-                    <span className="text-[7px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">Official</span>
-                    <span className="text-[10px] font-black text-slate-900 uppercase tracking-tight">Authorized HP Partner</span>
-                 </div>
-              </div>
-
               <button 
                 onMouseEnter={() => setActiveDropdown('categories')}
                 className={cn(
@@ -371,7 +359,7 @@ export default function Header() {
                 <div className="flex-1 p-12 bg-white">
                   <div className="flex items-center justify-between mb-10">
                      <div>
-                        <h4 className="text-4xl font-black text-slate-900 uppercase tracking-tighter mb-1">{activeParent?.name || 'Authorized Tech'}</h4>
+                        <h4 className="text-4xl font-black text-slate-900 uppercase tracking-tighter mb-1">{activeParent?.name || 'Departments'}</h4>
                         <p className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.3em]">Premium Infrastructure Solutions</p>
                      </div>
                      <Link to={`/shop?category=${activeParent?.slug}`} onClick={() => setActiveDropdown(null)} className="h-11 px-8 rounded-full bg-slate-900 text-white hover:bg-blue-600 transition-all duration-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-3 shadow-lg shadow-black/10">

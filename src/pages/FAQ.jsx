@@ -31,7 +31,7 @@ const faqData = [
     category: "Products & Availability",
     questions: [
       { q: "Are your products genuine and covered under warranty?", a: "Yes. All products are 100% genuine and come with an official manufacturer's warranty." },
-      { q: "Do you sell only HP products or other brands too?", a: "We are an Authorized HP Partner, but we also sell printers and accessories from other trusted brands." },
+      { q: "Do you sell products from multiple brands?", a: "Yes, we sell printers and accessories from a wide range of trusted industry brands." },
       { q: "How can I choose the right printer?", a: "You can contact our expert support for personalized buying recommendations based on your usage and budget." },
       { q: "What if an item is out of stock?", a: "You can join the Back in Stock alert on the product page, and we’ll notify you as soon as it becomes available." },
       { q: "Can I compare products before buying?", a: "Yes. Use our Compare feature to check specs, features, and pricing side by side." }
@@ -41,9 +41,9 @@ const faqData = [
     category: "Warranty & Support",
     questions: [
       { q: "Do your products come with a manufacturer's warranty?", a: "Yes. Every product includes full brand-backed warranty with repair/replacement coverage." },
-      { q: "How do I claim warranty for HP products?", a: "You can contact HP Support directly or reach out to us for guidance and warranty assistance." },
+      { q: "How do I claim warranty for my products?", a: "You can contact the manufacturer directly or reach out to us for guidance and warranty assistance." },
       { q: "What if my printer arrives damaged?", a: "Contact us within 48 hours with photos/videos. We’ll arrange a replacement or initiate a claim." },
-      { q: "Do you provide technical support?", a: "Yes. We offer setup help, troubleshooting, installation support, and product-related guidance." },
+      { q: "Do you provide expert support?", a: "Yes. We offer setup help, troubleshooting, installation support, and product-related guidance." },
       { q: "How do I contact customer support?", a: "You can reach us via email, chat, or our contact form. Support is available 7 days a week." }
     ]
   },
@@ -70,7 +70,7 @@ const faqData = [
     category: "Printer & Ink FAQs",
     questions: [
       { q: "How do I choose the right printer?", a: "Consider your usage — home, office, photos, or bulk printing — and our team can recommend the best match." },
-      { q: "Do you sell original HP ink and toner?", a: "Yes. We sell 100% original HP ink and toner, plus compatible options for other brands." },
+      { q: "Do you sell original ink and toner?", a: "Yes. We sell 100% original ink and toner, plus compatible options for all major brands." },
       { q: "Why is my printer showing “Offline”?", a: "This usually indicates a driver issue or Wi-Fi interruption. Our support team can fix this quickly." },
       { q: "How do I improve print quality?", a: "Try cleaning printheads, using genuine supplies, adjusting paper settings, or contacting support." }
     ]
@@ -120,7 +120,7 @@ export default function FAQ() {
     <div className="min-h-screen bg-white pt-32 pb-20 font-urbanist overflow-hidden">
       <SEO 
         title="FAQ | PrinterKicks Support Hub" 
-        description="Find answers to common questions about orders, shipping, products, and technical support."
+        description="Find answers to common questions about orders, shipping, products, and professional support."
       />
       
       {/* --- PROFESSIONAL PAGE HEADER --- */}
@@ -186,7 +186,7 @@ export default function FAQ() {
                 <div className="absolute top-0 right-0 p-6 opacity-10">
                    <ShieldCheck size={80} strokeWidth={1} />
                 </div>
-                <h4 className="text-lg font-black uppercase tracking-tight mb-2">Technical Assistance</h4>
+                <h4 className="text-lg font-black uppercase tracking-tight mb-2">Expert Assistance</h4>
                 <p className="text-[10px] font-bold text-blue-100 uppercase tracking-widest mb-10 opacity-80">Direct operational support available.</p>
                 <div className="space-y-4">
                   <a href="mailto:info@printerkicks.shop" className="flex items-center gap-4 text-xs font-black hover:opacity-80 transition-opacity uppercase tracking-widest">
